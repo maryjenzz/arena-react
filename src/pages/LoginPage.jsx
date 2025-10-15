@@ -38,8 +38,9 @@ function LoginPage() {
         <a href="#">esqueci a minha senha</a><br />
       </div>
       <div id="button">
-        <Link className="button" to="/">ENTRE</Link><br />
-        <Link className="button" to="/cadastro">CADASTRE-SE</Link>
+        <Link className="button" to="/">FAZER LOGIN</Link><br />
+        <Link className="button" to="/cadastro">CRIAR CONTA</Link><br />
+        <Link className="button" to="/">VOLTAR PARA HOMEPAGE</Link>
       </div>
     </div>
   );

@@ -11,9 +11,7 @@ function Header() {
   };
 
   return (
-    <header>
-      <img src={logo} alt="Logo Arena Máfia" className="logo" />
-      
+    <header>      
       {/* Navegação original para o desktop - esta vai aparecer em telas grandes */}
       <nav className="navbar">
           <ul>

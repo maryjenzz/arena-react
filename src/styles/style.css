@@ -37,6 +37,8 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem; /* Tamanho de fonte base mais legível */
   color: #333; /* Cor de texto padrão escura */
+  background-color: #e0e0e0;
+
 }
 
 /* Estilo da seleção de texto */
@@ -87,7 +89,7 @@ header {
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1.5rem 7%;
   height: 7.5rem;
   background-color: #fff;
@@ -123,7 +125,6 @@ header .navbar ul li a {
 header .navbar ul li a:hover,
 header .navbar ul li a.active {
   color: green;
-  border-bottom: 0.2rem solid #0b2b0e;
 }
 
 
@@ -270,12 +271,9 @@ header .navbar ul li a.btn-login.active {
       linear-gradient(to top, rgba(11, 38, 10, 0.9), rgba(11, 38, 10, 0.7)),
       url('../assets/imagens/bg.png') no-repeat; 
   background-size: cover;
-  background-position: top center; /* Garante que o topo da imagem não seja cortado */
-  background-attachment: fixed;
-  color: #fff; 
-
-
-  }
+  background-position: top center;
+  color: #fff;
+}
 
 #home .heading {
     font-size: 5rem; /* Ajuste o tamanho da fonte para o título principal */
@@ -344,13 +342,18 @@ header .navbar ul li a.btn-login.active {
 }
 
 #localizacao {
-  background-color: #ccc; /* Cor de fundo da sua versão original */
+  background-color: #e1e0e0;
 }
 
 #localizacao .sub-heading {
+/* R. Getúlio Vargas, 1015 - Centro, Canoinhas - SC */
   font-size: 1.8rem;
   color: #333;
+  font-weight: 500;
+  font-style: normal;
   margin-bottom: 2rem;
+  margin-top: -2rem;
+  text-align: center;
 }
 
 .map-container {
@@ -417,40 +420,56 @@ header .navbar ul li a.btn-login.active {
 }
 
 /* ==================================================================
-   04b. Seção Contato (NOVO)
+   04b. Seção Contato
 ================================================================== */
+
 #contato {
-  background-color: #ccc;
+  background-color: #f9f9f9;
 }
 
 .contato-container form {
   max-width: 70rem;
   margin: 1rem auto;
   text-align: center;
+
 }
 
 .contato-container form .contato-box {
   width: 100%;
-  margin: .7rem 0;
-  padding: 1.5rem;
-  border-radius: .5rem;
-  border: 1px solid #333;
+  margin: 1.5rem 0;
+  padding: 2rem;
   font-size: 1.6rem;
   color: #333;
-  text-transform: none;
   background: #fff;
+  border: 0.5px solid rgba(53, 52, 52, 0.3);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+
 }
 
 .contato-container form textarea {
   resize: none;
   height: 20rem;
+  font-family: sans-serif;
+  color: #333;
 }
 
 .contato-container form .btn-principal {
     margin-top: 1rem;
-    cursor: pointer;
+    padding: 1.2rem 4rem;
+    font-size: 1.5rem;  
+    font-weight: bold;
+    color: #fff;
+    background: green;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 70rem;
+    
 }
-
 
 /* ==================================================================
    05. Rodapé (Footer)

@@ -6,15 +6,14 @@ import CardModalidades from '../components/ModalidadeCard';
 
 function HomePage() {
     return (
-        <div>
+        <>
             <Header />
-            <div className="main-container">
+            <div className="page-content"> 
                 <section id="home">
                     <h1 className="heading"><span>Arena Máfia</span></h1>
                     <p>Primeira Arena de Canoinhas</p>
                     <a href="https://wa.me/47999808398?text=Ol%C3%A1%21+Gostaria+de+fazer+uma+reserva." className="btn-principal" target="_blank">Faça sua Reserva</a>
                 </section>
-
                 <section id="modalidades">
                     <h2 className="heading">Nossas <span>Modalidades</span></h2>
                     <div className="modalidades-container">
@@ -81,13 +80,18 @@ function HomePage() {
                             <input type="text" placeholder="Seu nome" className="contato-box" />
                             <input type="email" placeholder="Seu e-mail" className="contato-box" />
                             <textarea cols="30" rows="10" className="contato-box" placeholder="Sua mensagem"></textarea>
-                            <input type="submit" value="Enviar Mensagem" className="btn-principal" />
+                            <input type="submit" value="Enviar" className="btn-principal" />
                         </form>
                     </div>
                 </section>
+                <div className="share">
+                    <a href="https://wa.me/47999808398" className="fab fa-whatsapp" target="_blank"></a>
+                    <a href="https://www.instagram.com/arenamafia_canoinhas/" className="fab fa-instagram" target="_blank"></a>
+                    <a href="mailto:contato@arenamafia.com" className="fas fa-envelope"></a>
+                </div>
             </div>
             <Footer />
-        </div>
+        </>
     );
 }
 

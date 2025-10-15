@@ -7,11 +7,13 @@ import CadastroPage from './pages/CadastroPage';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/cadastro" element={<CadastroPage />} />
-      </Routes>
+      <div className="main-app-container">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/cadastro" element={<CadastroPage />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
