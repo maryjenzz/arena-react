@@ -1,0 +1,137 @@
+body{
+    min-height: 100vh;
+    background: linear-gradient(178deg,rgba(0, 107, 57, 1) 0%, rgba(35, 31, 32, 1) 70%);
+}
+
+div{
+    margin: 0 auto;
+}
+
+#titulo{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    
+}
+
+.logo{
+    width: 200px; 
+    height: auto;
+}
+
+#imagem{
+    width: 200px;
+    height: auto;
+}
+
+.linha-divisoria {
+  height: 1px;
+  background-color: #ffffff55;
+  width: 90%;
+  margin: 20px auto;
+}
+
+#informacoes{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: transparent;
+    margin: 0 auto;
+    padding: 18px;
+    width: 455px;
+    color: black;
+}
+
+.input-cadastro {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 10px 5px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-cadastro::placeholder {
+    color: #ffffff69;
+}
+
+.input-cadastro:focus {
+    border-bottom: 2px solid #5F9B40;
+}
+
+#button{
+    text-align: center;
+}
+
+.button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    padding: 8px 16px;
+    margin-top: 30px; /*Distância do botão para as informações*/
+    font-weight: 600; /*Negrito*/
+    letter-spacing: -0.02em;
+    color: white; 
+    text-decoration: none;
+    background-color: transparent; 
+    border: 2px solid white;
+    border-radius: 255px;
+    font-size: 16px; 
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: white;
+    background-color: #006B39;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.button-google {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 260px;
+    padding: 10px 16px;
+    margin-top: 30px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 255px;
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#button-google{
+    text-align: center;
+}
+
+.logo-google {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+}
+
+.senha-container {
+  position: relative;
+  width: 100%;
+}
+
+.senha-container i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  cursor: pointer;
+}

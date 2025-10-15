@@ -1,0 +1,600 @@
+/* ==================================================================
+   ARENA MÁFIA - FOLHA DE ESTILO PRINCIPAL
+   ==================================================================
+   01. Importações de Fontes e Estilos Gerais
+   02. Header e Barra de Navegação (Desktop)
+   03. Botões (Principal e Login)
+   04. Seções da Página (Home, Modalidades, Localização)
+   05. Rodapé (Footer)
+   06. Componentes (Scroll Top)
+   07. Media Queries (Estilos para Telas Pequenas/Mobile)
+================================================================== */
+
+/* ==================================================================
+   01. Importações de Fontes e Estilos Gerais
+================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%; /* Base para usar 'rem' como unidade (1rem = 10px) */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 6.5rem; /* Espaço para o header fixo */
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem; /* Tamanho de fonte base mais legível */
+  color: #333; /* Cor de texto padrão escura */
+}
+
+/* Estilo da seleção de texto */
+*::selection {
+  background: green;
+  color: #fff;
+}
+
+/* Estilo da barra de rolagem */
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+html::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+html::-webkit-scrollbar-thumb {
+  background: #035c06;
+  border-radius: 5px;
+}
+
+/* Estilos gerais para todas as seções */
+section {
+  min-height: 100vh;
+  padding: 4rem 9%;
+}
+
+.heading {
+  font-size: 3.5rem;
+  color: #333;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heading span {
+  color: green;
+}
+
+
+/* ==================================================================
+   02. Header e Barra de Navegação (Desktop)
+================================================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 7%;
+  height: 7.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
+}
+
+.logo {
+  max-height: 5.5rem;
+  object-fit: contain;
+}
+
+header .navbar ul {
+  display: flex !important;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  gap: 2rem; /* SOLUÇÃO: Espaçamento consistente entre os links */
+  margin: 0;
+  padding: 0;
+}
+
+header .navbar li {
+  margin: 0; /* A margem agora é controlada pelo 'gap' */
+}
+
+header .navbar ul li a {
+  font-size: 1.6rem;
+  color: #0b2b0e;
+  font-weight: 600;
+  padding-bottom: 0.5rem; /* Padding para o border-bottom ter espaço */
+}
+
+header .navbar ul li a:hover,
+header .navbar ul li a.active {
+  color: green;
+  border-bottom: 0.2rem solid #0b2b0e;
+}
+
+
+/* ==================================================================
+   03. Botões (Principal e Login)
+================================================================== */
+
+/* Estilo para o botão de menu (mobile) - similar ao btn-principal */
+.btn-menu-mobile {
+  display: inline-block;
+  font-style: bold;
+  padding: 0.9rem 2rem; /* Ajuste o padding conforme o seu btn-principal */
+  border-radius: 0.5rem;
+  background: green; /* Cor verde do seu botão */
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none; /* Garante que não há borda padrão de botão */
+}
+
+.btn-menu-mobile:hover {
+  background: green; /* Cor verde mais escura ao passar o mouse */
+}
+
+/* Estilos para o container do dropdown */
+.mobile-dropdown-container {
+  position: relative;
+  display: inline-block; /* Para o botão ser respeitado no layout */
+}
+
+/* Estilos para o conteúdo do dropdown quando aberto */
+.mobile-dropdown-content {
+  display: none; /* Escondido por padrão */
+  position: absolute;
+  background-color: #f9f9f9; /* Fundo claro para o dropdown */
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+  right: 0; /* Alinha o dropdown à direita do botão */
+  border-radius: 0.5rem;
+  overflow: hidden; /* Garante que o conteúdo não vaze */
+  margin-top: 0.5rem; /* Espaçamento entre o botão e o dropdown */
+}
+
+.mobile-dropdown-content.show {
+  display: block; /* Mostra o dropdown quando a classe 'show' está presente */
+}
+
+/* Estilos para os links dentro do dropdown */
+.mobile-dropdown-content ul {
+  list-style: none; /* Remove marcadores de lista */
+  margin: 0;
+  padding: 0;
+  flex-direction: column; /* Empilha os itens verticalmente */
+  gap: 0; /* Remove espaçamento horizontal */
+}
+
+.mobile-dropdown-content ul li {
+  width: 100%;
+}
+
+.mobile-dropdown-content ul li a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.6rem;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.mobile-dropdown-content ul li a:hover {
+  background-color: #e0e0e0;
+  color: green; /* Cor verde no hover */
+}
+
+/* Botão Principal na Seção Home */
+.btn-principal {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1.2rem 4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff; /* Texto branco para melhor contraste */
+  background: green;
+  border-radius: 8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-principal:hover {
+  transform: scale(1.05);
+  color: #fff; /* Mantém o texto branco no hover */
+}
+
+/* Regra que empurra o botão de Login para a direita */
+.navbar ul li.login-item {
+  margin-left: auto;
+}
+
+/* Botão de Login na Navbar */
+.navbar ul li a.btn-login {
+  background: green;
+  color: #fff;
+  padding: 0.8rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: 2px solid transparent; /* Prepara para o hover sem "pular" */
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar ul li a.btn-login:hover {
+  background: transparent;
+  color: green;
+  border-color: green;
+}
+
+/* Garante que o hover padrão (com linha) NÃO afete o botão de login */
+header .navbar ul li a.btn-login:hover,
+header .navbar ul li a.btn-login.active {
+  border-bottom: none; /* Remove a linha de baixo */
+  padding: 0.8rem 2.2rem; /* Mantém o padding original */
+}
+
+
+/* ==================================================================
+   04. Seções da Página (Home, Modalidades, Localização)
+================================================================== */
+
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: 
+      linear-gradient(to top, rgba(11, 38, 10, 0.9), rgba(11, 38, 10, 0.7)),
+      url('../assets/imagens/bg.png') no-repeat; 
+  background-size: cover;
+  background-position: top center; /* Garante que o topo da imagem não seja cortado */
+  background-attachment: fixed;
+  color: #fff; 
+
+
+  }
+
+#home .heading {
+    font-size: 5rem; /* Ajuste o tamanho da fonte para o título principal */
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+#home .heading span {
+    color: green; /* Cor verde para o destaque no título */
+}
+
+#home p {
+    font-size: 2rem;
+    color: #eee;
+    margin-bottom: 2rem;
+}
+
+#home .btn-principal {
+    margin-top: 2rem;
+}
+
+#modalidades {
+  background-color: #fff; /* Fundo branco para melhor contraste dos cards */
+}
+
+.modalidades-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.modalidade-card {
+  background: #f9f9f9; /* Fundo cinza claro para o card */
+  width: 320px;
+  padding: 35px 25px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  cursor: default;
+  transition: all 0.3s ease-in-out;
+}
+
+.modalidade-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.modalidade-card i {
+  font-size: 5rem;
+  color: green;
+  margin-bottom: 1.5rem;
+}
+
+.modalidade-card h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.modalidade-card p {
+  font-size: 1.5rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+#localizacao {
+  background-color: #ccc; /* Cor de fundo da sua versão original */
+}
+
+#localizacao .sub-heading {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 40%; /* Proporção do mapa (altura) */
+  height: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================================================================
+   04a. Seção Horários (NOVO)
+================================================================== */
+#horarios {
+  background-color: #f9f9f9;
+}
+
+.tabela-horarios {
+  max-width: 800px;
+  margin: 0 auto;
+  overflow-x: auto; /* Para rolagem em telas pequenas */
+}
+
+.tabela-horarios table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.tabela-horarios th,
+.tabela-horarios td {
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+}
+
+.tabela-horarios thead {
+  background-color: green;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.tabela-horarios tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.aviso-horarios {
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  color: #666;
+  font-size: 1.4rem;
+}
+
+/* ==================================================================
+   04b. Seção Contato (NOVO)
+================================================================== */
+#contato {
+  background-color: #ccc;
+}
+
+.contato-container form {
+  max-width: 70rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.contato-container form .contato-box {
+  width: 100%;
+  margin: .7rem 0;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  border: 1px solid #333;
+  font-size: 1.6rem;
+  color: #333;
+  text-transform: none;
+  background: #fff;
+}
+
+.contato-container form textarea {
+  resize: none;
+  height: 20rem;
+}
+
+.contato-container form .btn-principal {
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+
+/* ==================================================================
+   05. Rodapé (Footer)
+================================================================== */
+.footer {
+  min-height: auto;
+  padding: 4rem 9% 2rem 9%;
+  background: #004f2a;
+  color: #fff;
+}
+
+.footer .box-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.footer .box-container .box {
+  flex: 1 1 25rem;
+  margin: 1rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 2.2rem;
+  padding-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.footer .box-container .box p,
+.footer .box-container .box a {
+  font-size: 1.5rem;
+  color: #eee;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+.footer .box-container .box p i {
+  padding-right: 1rem;
+  color: green;
+}
+
+.footer .box-container .box a:hover {
+  color: green;
+}
+
+.footer .share a {
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem; /* Alinha o ícone verticalmente */
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  margin-right: 1rem;
+  background: #fff;
+  color: #013606;
+}
+
+.footer .share a:hover {
+  background: green;
+  color: #fff;
+}
+
+.footer .credit {
+  padding-top: 2.5rem;
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: "Nunito", sans-serif;
+  color: #fff;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+}
+
+.footer .credit a {
+  color: green;
+}
+
+
+/* ==================================================================
+   06. Componentes (Scroll Top)
+================================================================== */
+#scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  background: green;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 1000;
+  opacity: 0; /* Inicia invisível */
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+#scroll-top.active {
+  opacity: 1; /* Fica visível */
+  visibility: visible;
+}
+
+/* Estilos Específicos para a Navegação no Desktop */
+header .navbar.desktop-menu {
+  display: flex; /* Garante que a navegação original apareça no desktop */
+}
+
+/* Estilos Específicos para o Menu Dropdown (Mobile) */
+.mobile-dropdown {
+  display: none; /* Esconde o dropdown por padrão no desktop */
+}
+
+/* ==================================================================
+   Media Queries para Dispositivos Móveis
+================================================================== */
+
+@media (max-width: 768px) {
+  /* Esconde a navegação principal (desktop) */
+  header .navbar {
+    display: none;
+  }
+
+  /* Mostra o container do dropdown mobile */
+  .mobile-dropdown-container {
+    display: block; /* Exibe o dropdown mobile */
+    margin-left: auto; /* Empurra para a direita, próximo ao logo */
+    margin-right: 2rem; /* Espaçamento da borda */
+  }
+
+  header {
+      /* Talvez precise de um ajuste no flex-direction ou align-items aqui
+         se o logo e o botão não estiverem alinhados */
+      flex-flow: row wrap; /* Permite que os itens quebrem se necessário */
+      justify-content: space-between; /* Espaço entre logo e botão */
+      align-items: center; /* Alinha verticalmente */
+  }
+}
+
+/* Em telas maiores que 768px, certifique-se que o mobile-dropdown-container está oculto */
+@media (min-width: 769px) {
+  .mobile-dropdown-container {
+    display: none;
+  }
+  /* E garanta que a navegação desktop está visível */
+  header .navbar {
+    display: flex; /* Ou block, dependendo do seu layout original */
+  }
+}
