@@ -169,7 +169,7 @@ header .navbar ul li a.active {
   z-index: 1000;
   right: 0; /* Alinha o dropdown à direita do botão */
   border-radius: 0.5rem;
-  overflow: hidden; /* Garante que o conteúdo não vaze */
+  overflow-x: hidden; /* Garante que o conteúdo não vaze */
   margin-top: 0.5rem; /* Espaçamento entre o botão e o dropdown */
 }
 
@@ -225,33 +225,21 @@ header .navbar ul li a.active {
   color: #fff; /* Mantém o texto branco no hover */
 }
 
-/* Regra que empurra o botão de Login para a direita */
-.navbar ul li.login-item {
-  margin-left: auto;
-}
-
 /* Botão de Login na Navbar */
 .navbar ul li a.btn-login {
   background: green;
   color: #fff;
-  padding: 0.8rem 2.2rem;
-  border-radius: 50px;
+  padding: 0.3rem 4rem;
+  border-radius: 30px;
   font-weight: 600;
   border: 2px solid transparent; /* Prepara para o hover sem "pular" */
   transition: all 0.3s ease-in-out;
 }
 
 .navbar ul li a.btn-login:hover {
-  background: transparent;
+  background: #fff;
   color: green;
-  border-color: green;
-}
-
-/* Garante que o hover padrão (com linha) NÃO afete o botão de login */
-header .navbar ul li a.btn-login:hover,
-header .navbar ul li a.btn-login.active {
-  border-bottom: none; /* Remove a linha de baixo */
-  padding: 0.8rem 2.2rem; /* Mantém o padding original */
+  border: 2px solid green;
 }
 
 
@@ -278,17 +266,25 @@ header .navbar ul li a.btn-login.active {
 #home .heading {
     font-size: 5rem; /* Ajuste o tamanho da fonte para o título principal */
     color: #fff;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-shadow: black 2px 2px 2px;
+}
+
+#home .home-logo {
+    width: 200px; /* Ajuste o tamanho do logo conforme necessário */
     margin-bottom: 1rem;
 }
 
 #home .heading span {
-    color: green; /* Cor verde para o destaque no título */
+    color: #fff
 }
 
 #home p {
     font-size: 2rem;
     color: #eee;
     margin-bottom: 2rem;
+    text-shadow: black 2px 1px 1px;
 }
 
 #home .btn-principal {
@@ -296,7 +292,7 @@ header .navbar ul li a.btn-login.active {
 }
 
 #modalidades {
-  background-color: #fff; /* Fundo branco para melhor contraste dos cards */
+  background-color: #e1e0e0; /* Fundo branco para melhor contraste dos cards */
 }
 
 .modalidades-container {
@@ -476,77 +472,49 @@ header .navbar ul li a.btn-login.active {
 ================================================================== */
 .footer {
   min-height: auto;
-  padding: 4rem 9% 2rem 9%;
-  background: #004f2a;
-  color: #fff;
+  padding: 2rem 9% 2rem 9%; /* Espaçamento ajustado */
+  background: white; /* Fundo cinza escuro (como na imagem) */
+  color: #333; 
 }
 
+/* Oculta completamente a estrutura de "Links Rápidos" e "Endereço" */
 .footer .box-container {
+  display: none;
+}
+
+/* NOVO: Estilo para o container de ícones */
+.share-icons-container {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 3rem;
+  justify-content: center; /* Centraliza os ícones */
+  gap: 3rem; /* Espaço entre os ícones */
+  margin-bottom: 1.5rem; /* Espaço entre os ícones e o texto de crédito */
 }
 
-.footer .box-container .box {
-  flex: 1 1 25rem;
-  margin: 1rem;
+/* NOVO: Estilo para cada ícone */
+.share-icons-container .share-icon {
+  height: auto;
+  width: auto;
+  font-size: 2.8rem; /* Aumente o tamanho para mais visibilidade */
+  background: none;
+  color: green; /* Cor verde para os ícones */
+  transition: color 0.2s;
 }
 
-.footer .box-container .box h3 {
-  font-size: 2.2rem;
-  padding-bottom: 1.5rem;
-  font-weight: 600;
+.share-icons-container .share-icon:hover {
+  color: #008000; /* Um verde ligeiramente diferente no hover, se desejar */
 }
 
-.footer .box-container .box p,
-.footer .box-container .box a {
-  font-size: 1.5rem;
-  color: #eee;
-  padding: 0.5rem 0;
-  display: block;
-}
 
-.footer .box-container .box p i {
-  padding-right: 1rem;
-  color: green;
-}
-
-.footer .box-container .box a:hover {
-  color: green;
-}
-
-.footer .share a {
-  height: 4rem;
-  width: 4rem;
-  line-height: 4rem; /* Alinha o ícone verticalmente */
-  text-align: center;
-  border-radius: 50%;
-  font-size: 1.7rem;
-  margin-right: 1rem;
-  background: #fff;
-  color: #013606;
-}
-
-.footer .share a:hover {
-  background: green;
-  color: #fff;
-}
-
+/* Estilo para o texto de crédito */
 .footer .credit {
-  padding-top: 2.5rem;
-  margin-top: 2.5rem;
+  padding-top: 0;
+  margin-top: 0;
   text-align: center;
   font-size: 1.5rem;
   font-family: "Nunito", sans-serif;
-  color: #fff;
-  border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+  color: #666; /* Cor cinza clara para o texto de crédito (como na imagem) */
+  border-top: none; /* Garante que não haja borda superior */
 }
-
-.footer .credit a {
-  color: green;
-}
-
 
 /* ==================================================================
    06. Componentes (Scroll Top)

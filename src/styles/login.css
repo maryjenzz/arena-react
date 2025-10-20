@@ -1,10 +1,6 @@
 body{
     min-height: 100vh;
-    background: linear-gradient(178deg,rgba(0, 107, 57, 1) 0%, rgba(35, 31, 32, 1) 70%);
-}
-
-div{
-    margin: 0 auto;
+    background: linear-gradient(178deg,green, rgb(0, 0, 0) 30%);
 }
 
 #titulo{
@@ -14,15 +10,6 @@ div{
     
 }
 
-.logo{
-    width: 200px; 
-    height: auto;
-}
-
-#imagem{
-    width: 200px;
-    height: auto;
-}
 #informacoes{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: transparent;
@@ -32,11 +19,20 @@ div{
     color: black;
 }
 
+#imagem .logo {
+    width: 200px;
+    max-height: none;
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+}
+
 .input-login {
     width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid white;
+    background-color: #18181b;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(85, 85, 85, 0.336);
     padding: 10px 5px;
     color: white;
     font-size: 16px;
@@ -45,15 +41,18 @@ div{
 }
 
 .input-login::placeholder {
-    color: #ffffff69;
+    color: #8f8f8f69;
 }
 
 .input-login:focus {
-    border-bottom: 2px solid #5F9B40;
+    border-bottom: 2px solid #b1b1b150;
+    border-right: 2px solid #b1b1b150;
 }
 
 #button{
     text-align: center;
+    margin-bottom: 20px;
+    margin: transparent;
 }
 
 .button {
@@ -61,16 +60,15 @@ div{
     display: inline-flex;
     justify-content: center;
     text-align: center;
-    width: 200px;
+    width: 30%;
     padding: 8px 16px;
     margin-top: 30px; /*Distância do botão para as informações*/
     font-weight: 600; /*Negrito*/
-    letter-spacing: -0.02em;
     color: white; 
     text-decoration: none;
     background-color: transparent; 
-    border: 2px solid white;
-    border-radius: 255px;
+    border: 2px solid #b1b1b150;
+    border-radius: 8px;
     font-size: 16px; 
     transition: all 0.5s ease-in-out;
     cursor: pointer;

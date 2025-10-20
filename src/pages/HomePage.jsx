@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
+import logo from '../assets/imagens/logo-arena-mafia.png';
 import Footer from '../components/Footer';
 import '../styles/style.css'; 
 import CardModalidades from '../components/ModalidadeCard';
@@ -10,6 +11,7 @@ function HomePage() {
             <Header />
             <div className="page-content"> 
                 <section id="home">
+                    <img src={logo} alt="Logo Arena Máfia" className="home-logo" />
                     <h1 className="heading"><span>Arena Máfia</span></h1>
                     <p>Primeira Arena de Canoinhas</p>
                     <a href="https://wa.me/47999808398?text=Ol%C3%A1%21+Gostaria+de+fazer+uma+reserva." className="btn-principal" target="_blank">Faça sua Reserva</a>
@@ -17,7 +19,6 @@ function HomePage() {
                 <section id="modalidades">
                     <h2 className="heading">Nossas <span>Modalidades</span></h2>
                     <div className="modalidades-container">
-                        {/* Aqui vamos usar um componente separado para cada card */}
                         <CardModalidades
                             iconClass="fas fa-table-tennis"
                             title="Beach Tennis"
@@ -84,11 +85,6 @@ function HomePage() {
                         </form>
                     </div>
                 </section>
-                <div className="share">
-                    <a href="https://wa.me/47999808398" className="fab fa-whatsapp" target="_blank"></a>
-                    <a href="https://www.instagram.com/arenamafia_canoinhas/" className="fab fa-instagram" target="_blank"></a>
-                    <a href="mailto:contato@arenamafia.com" className="fas fa-envelope"></a>
-                </div>
             </div>
             <Footer />
         </>

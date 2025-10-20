@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/imagens/logo-arena-mafia.png';
-import '../styles/login.css'; // Importa o CSS de login
+import '../styles/login.css'; 
 
 function LoginPage() {
   const [passwordType, setPasswordType] = useState('password');
@@ -9,40 +9,48 @@ function LoginPage() {
   const togglePasswordVisibility = () => {
     setPasswordType(passwordType === 'password' ? 'text' : 'password');
   };
-
+  
   return (
-    <div className="login-page-container">
-      <div id="titulo">
-        <h1>Sejam bem-vindos</h1>
-      </div>
+    <>
       <div id="imagem">
         <img src={logo} alt="Logo Arena Máfia" className="logo" />
       </div>
+
       <div id="informacoes">
-        <p><i className="fas fa-envelope"></i></p>
-        <input type="email" className="input-login" placeholder="Insira seu e-mail" />
-        <p><i className="fas fa-lock"></i></p>
-        <div className="senha-container">
-          <input
-            type={passwordType}
-            className="input-login"
-            id="senha"
-            placeholder="Insira sua senha"
-          />
-          <i
-            className={`fas ${passwordType === 'password' ? 'fa-eye' : 'fa-eye-slash'}`}
-            id="toggleSenha"
-            onClick={togglePasswordVisibility}
-          ></i>
+        {/* Container para Email */}
+        <div className="input-with-icon">
+          <i className="fas fa-envelope"></i>
+          <input type="email" className="input-login" placeholder="Insira seu e-mail" />
         </div>
-        <a href="#">esqueci a minha senha</a><br />
+        
+        {/* Container para Senha */}
+        <div className="input-with-icon">
+          <i className="fas fa-lock"></i>
+          <div className="senha-container">
+            <input
+              type={passwordType}
+              className="input-login"
+              id="senha"
+              placeholder="Insira sua senha"
+            />
+            <i
+              className={`fas ${passwordType === 'password' ? 'fa-eye' : 'fa-eye-slash'}`}
+              id="toggleSenha"
+              onClick={togglePasswordVisibility}
+            ></i>
+          </div>
+        </div>
+        
+        {/* Esqueceu sua senha? */}
+        <a href="#">Esqueceu sua senha?</a> 
       </div>
+
       <div id="button">
-        <Link className="button" to="/">FAZER LOGIN</Link><br />
+        <a className="button" href="#">FAZER LOGIN</a><br /> 
         <Link className="button" to="/cadastro">CRIAR CONTA</Link><br />
-        <Link className="button" to="/">VOLTAR PARA HOMEPAGE</Link>
+        <Link className="button" to="/">VOLTAR PARA HOMEPAGE</Link> 
       </div>
-    </div>
+    </>
   );
 }
 
