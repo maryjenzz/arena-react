@@ -1,9 +1,10 @@
-/* cadastro.css */
+/* src/styles/cadastro.css (CORRIGIDO) */
 
-body {
+/* 1. CONTAINER PRINCIPAL (ESTILO ANTERIORMENTE NO BODY) */
+.cadastro-page-container {
   background-color: #000;
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,63 +12,80 @@ body {
   margin: 0;
 }
 
-.container {
+.cadastro-page-container .form-container { /* */
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
-h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 30px;
+.cadastro-page-container h2 { /* */
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 15px;
 }
 
-form {
+.cadastro-page-container form { /* */
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 10px;
   text-align: left;
 }
 
-label {
+.cadastro-page-container label { /* */
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 5px;
   display: block;
 }
 
-.input-group {
+.cadastro-page-container .input-content { /* */
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
-.input-group input {
+.cadastro-page-container .input-group { /* */
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 12px 40px;
+}
+
+.cadastro-page-container .input-group input { /* */
+  width: 100%;
+  padding: 0;
   border: none;
-  border-radius: 10px;
-  background-color: #1a1a1a;
+  background-color: transparent;
   color: #fff;
-  font-size: 14px;
+  font-size: 1.6rem;
   outline: none;
 }
 
-.input-group input::placeholder {
+.cadastro-page-container .input-group input::placeholder { /* */
   color: #aaa;
 }
 
-.icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+.cadastro-page-container .icon { /* */
+  position: static;
+  left: auto;
+  top: auto;
+  transform: none;
   color: #aaa;
   font-size: 18px;
+  margin-right: 10px;; 
+  z-index: 1;
 }
 
-.toggle-icon {
+.cadastro-page-container .toggle-password { /* */
   position: absolute;
-  right: 12px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   color: #aaa;
@@ -75,8 +93,11 @@ label {
   cursor: pointer;
 }
 
-button {
+/* Scoping da tag <button> e da classe de botão primário */
+.cadastro-page-container button,
+.cadastro-page-container .btn-primary { /* */
   margin-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   padding: 12px;
   background-color: transparent;
@@ -89,7 +110,39 @@ button {
   transition: 0.3s;
 }
 
-button:hover {
+.cadastro-page-container button:hover,
+.cadastro-page-container .btn-primary:hover { /* */
   background-color: #fff;
   color: #000;
+}
+
+.cadastro-page-container .link-login-extra {
+    /* Faz o link parecer um botão (copiado do .btn-primary) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove sublinhado */
+    
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    /* Estilos Visuais Secundários (Fundo Transparente com Borda) */
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    
+    /* Espaçamento entre os dois botões */
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Efeito Hover para o novo botão */
+.cadastro-page-container .link-login-extra:hover {
+    background-color: #fff;
+    color: #000;
 }

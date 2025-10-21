@@ -1,5 +1,3 @@
-
-
 /* ==================================================================
    01. Importações de Fontes e Estilos Gerais
 ================================================================== */
@@ -23,15 +21,15 @@ html {
 }
 
 body {
-  padding-top: 6.5rem; /* Espaço para o header fixo */
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem; 
   color: #333; /* Cor de texto padrão escura */
   background-color: #e0e0e0;
-  
-
 }
 
+.page-content {
+  padding-top: 6.5rem; /* Espaço para o header fixo */
+}
 /* Estilo da seleção de texto */
 *::selection {
   background: green;
@@ -40,7 +38,6 @@ body {
 
 /* Estilos gerais para todas as seções */
 section {
-  min-height: 100vh;
   padding: 4rem 9%;
 }
 
@@ -246,7 +243,7 @@ header .navbar ul li a.active {
     font-size: 5rem; /* Ajuste o tamanho da fonte para o título principal */
     color: #fff;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-shadow: black 2px 2px 2px;
 }
 
@@ -469,20 +466,18 @@ header .navbar ul li a.active {
   margin-bottom: 1.5rem; /* Espaço entre os ícones e o texto de crédito */
 }
 
-/* NOVO: Estilo para cada ícone */
-.share-icons-container .share-icon {
+.share-icons-container ion-icon { 
   height: auto;
   width: auto;
-  font-size: 2.8rem; /* Aumente o tamanho para mais visibilidade */
+  font-size: 2.8rem;
   background: none;
   color: green; /* Cor verde para os ícones */
   transition: color 0.2s;
 }
 
-.share-icons-container .share-icon:hover {
+.share-icons-container ion-icon:hover {
   color: #008000; /* Um verde ligeiramente diferente no hover, se desejar */
 }
-
 
 /* Estilo para o texto de crédito */
 .footer .credit {

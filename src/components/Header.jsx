@@ -27,20 +27,20 @@ function Header() {
       {/* Container do dropdown para mobile - aparece apenas em telas pequenas */}
       <div className="mobile-dropdown-container">
         {/* Botão de menu que abre/fecha o dropdown */}
-        <button className="btn-menu-mobile" onClick={toggleDropdown}>
-          MENU 
-          <i className={`fas ${isDropdownOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`} style={{ marginLeft: '0.8rem' }}></i>
+        <button className="btn-menu-mobile" onClick={toggleDropdown}> 
+          <i className={`fas ${isDropdownOpen ? 'fa-times' : 'fa-bars'}`}></i>
         </button>
         
-        {/* Conteúdo do dropdown, visível quando isDropdownOpen é true */}
         <div className={`mobile-dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><a href="#modalidades">Modalidades</a></li>
-            <li><a href="#horarios">Horários</a></li>
-            <li><a href="#localizacao">Localização</a></li>
-            <li><a href="#contato">Contato</a></li>
-            <li><Link to="/login">Login</Link></li> {/* Removi a classe btn-login aqui */}
+            {/* Usa <a> com href="#home" para forçar a rolagem para a âncora */}
+            <li><a href="#home" onClick={toggleDropdown}>Home</a></li> 
+            <li><a href="#modalidades" onClick={toggleDropdown}>Modalidades</a></li>
+            <li><a href="#horarios" onClick={toggleDropdown}>Horários</a></li>
+            <li><a href="#localizacao" onClick={toggleDropdown}>Localização</a></li>
+            <li><a href="#contato" onClick={toggleDropdown}>Contato</a></li>
+            {/* O link de Login deve continuar sendo <Link> pois é para outra ROTA */}
+            <li><Link to="/login" onClick={toggleDropdown}>Login</Link></li> 
           </ul>
         </div>
       </div>

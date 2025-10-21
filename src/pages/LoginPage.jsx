@@ -11,21 +11,24 @@ function LoginPage() {
   };
   
   return (
-    <>
+    // <--- NOVO CONTAINER DE ESCOPO
+    <div className="login-page-container">
       <div id="imagem">
         <img src={logo} alt="Logo Arena Máfia" className="logo" />
       </div>
 
       <div id="informacoes">
-        {/* Container para Email */}
+        {/* Container para TELEFONE (Antigo Email) */}
         <div className="input-wrapper">
-          <i className="fas fa-envelope"></i>
-          <input type="email" className="input-field" placeholder="Insira seu E-mail" />
+          {/* ÍCONE TELEFONE - Material Icons */}
+          <span className="material-icons">phone</span> 
+          <input type="tel" className="input-field" placeholder="Insira seu Celular" />
         </div>
         
         {/* Container para Senha */}
         <div className="input-wrapper">
-          <i className="fas fa-lock"></i>
+          {/* ÍCONE CADEADO ESQUERDO - Material Icons */}
+          <span className="material-icons">lock</span>
           <div className="senha-container">
             <input
               type={passwordType}
@@ -33,11 +36,14 @@ function LoginPage() {
               id="senha"
               placeholder="Insira sua senha"
             />
-            <i
-              className={`fas ${passwordType === 'password' ? 'fa-eye-slash' : 'fa-eye'}`}
+            {/* ÍCONE TOGGLE - Material Icons */}
+            <span
+              className="material-icons"
               id="toggleSenha"
               onClick={togglePasswordVisibility}
-            ></i>
+            >
+              {passwordType === 'password' ? 'visibility_off' : 'visibility'}
+            </span>
           </div>
         </div>
         
@@ -46,11 +52,12 @@ function LoginPage() {
       </div>
 
       <div id="button">
-        <a className="button" href="#">FAZER LOGIN</a><br /> 
-        <Link className="button" to="/cadastro">CRIAR CONTA</Link><br />
-        <Link className="button" to="/">VOLTAR PARA HOMEPAGE</Link> 
+        <a className="button" href="#">FAZER LOGIN</a>
+        <Link className="button" to="/cadastro">CRIAR CONTA</Link>
+        <Link className="button" to="/">VOLTAR</Link> 
       </div>
-    </>
+    </div>
+    // ---> FIM DO CONTAINER DE ESCOPO
   );
 }
 

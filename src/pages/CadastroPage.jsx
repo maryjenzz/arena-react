@@ -15,13 +15,15 @@ function CadastroPage() {
   };
 
   return (
+    <div className="cadastro-page-container">
     <div className="form-container">
       <h2>Crie a sua conta</h2>
 
       <form>
         <div className="input-group">
           <label htmlFor="nome">Nome Completo</label>
-          <span className="material-icons">person</span>
+          <div className="input-content">
+          <span className="material-icons icon">person</span>
           <input
             type="text"
             id="nome"
@@ -29,10 +31,12 @@ function CadastroPage() {
             required
           />
         </div>
+        </div>
 
         <div className="input-group">
           <label htmlFor="usuario">Nome de usuário</label>
-          <span className="material-icons">person</span>
+          <div className="input-content">
+          <span className="material-icons icon">person</span>
           <input
             type="text"
             id="usuario"
@@ -40,10 +44,12 @@ function CadastroPage() {
             required
           />
         </div>
+        </div>
 
         <div className="input-group">
-          <label htmlFor="celular">Celular para lembretes (com DDD)</label>
-          <span className="material-icons">phone</span>
+          <label htmlFor="celular">Celular</label>
+          <div className="input-content">
+          <span className="material-icons icon">phone</span>
           <input
             type="tel"
             id="celular"
@@ -51,10 +57,12 @@ function CadastroPage() {
             required
           />
         </div>
+        </div>
 
         <div className="input-group">
           <label htmlFor="senha">Senha</label>
-          <span className="material-icons">lock</span>
+          <div className="input-content">
+          <span className="material-icons icon">lock</span>
           <input
             type={passwordType}
             id="senha"
@@ -68,14 +76,16 @@ function CadastroPage() {
             {passwordType === "password" ? "visibility_off" : "visibility"}
           </span>
         </div>
+        </div>
 
         <div className="input-group">
           <label htmlFor="confirmar-senha">Confirmar Senha</label>
-          <span className="material-icons">lock</span>
+          <div className="input-content">
+          <span className="material-icons icon">lock</span>
           <input
             type={confirmPasswordType}
             id="confirmar-senha"
-            placeholder="Repita a senha"
+            placeholder="Confirmar senha"
             required
           />
           <span
@@ -85,15 +95,16 @@ function CadastroPage() {
             {confirmPasswordType === "password" ? "visibility_off" : "visibility"}
           </span>
         </div>
+        </div>
 
         <button type="submit" className="btn-primary">
           CRIAR CONTA
         </button>
-      </form>
+        <Link to="/login" className="link-login-extra">FAZER LOGIN</Link>
+        </form>
+      </div>
     </div>
   );
 }
 
 export default CadastroPage;
-
-

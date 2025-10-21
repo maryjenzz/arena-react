@@ -1,7 +1,13 @@
-body{
+
+.login-page-container {
     min-height: 100vh;
     background: black;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 #titulo{
@@ -11,7 +17,9 @@ body{
     
 }
 
-#informacoes{
+/* 2. TODOS OS SELETORES AGORA SÃO PREFIXADOS POR .login-page-container */
+
+.login-page-container #informacoes{ /* */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: transparent;
     margin: 0 auto;
@@ -20,52 +28,52 @@ body{
     color: white;
 }
 
-#informacoes a {
+.login-page-container #informacoes a { /* */
     display: block;
     text-align: left;
     color: #b1b1b1;
     font-size: 1.4rem;
-    margin-top: -10px;
+    margin-top: 10px;
     margin-bottom: 0;
     text-decoration: none;
     padding-left: 20px;
 }
 
-#informacoes a:hover {
-    color: white; /* Exemplo: Muda a cor do texto de cinza (#b1b1b1) para branco */
-    text-decoration: underline; /* Exemplo: Adiciona um sublinhado */
-    transition: all 0.3s ease; /* Suaviza a transição */
+.login-page-container #informacoes a:hover { /* */
+    color: white;
+    text-decoration: underline;
+    transition: all 0.3s ease;
 }
 
-#imagem .logo {
-    width: 200px;
+.login-page-container #imagem .logo { /* */
+    width: 140px;
     max-height: none;
     height: auto;
     display: block;
     margin: 0 auto; 
 }
 
-.input-wrapper {
+.login-page-container .input-wrapper { /* */
     width: 100%;
     display: flex;
     align-items: center;
-    height: 50px;
-    margin-bottom: 20px;
-    padding: 0 15px;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
 
     background-color: #18181b;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.input-wrapper .fas {
+.login-page-container .input-wrapper .material-icons { /* */
     color: #b1b1b1;
     font-size: 1.6rem;
     margin-right: 10px;
 }
  
-.input-field {
+.login-page-container .input-field { /* */
     width: 100%;
     background-color: transparent;
     border: none;
@@ -76,39 +84,44 @@ body{
     outline: none;
 }
 
-.input-field::placeholder {
+.login-page-container .input-field::placeholder { /* */
     color: #8f8f8f;
 }
-.senha-container {
+
+/* Scoping do container de senha */
+.login-page-container .senha-container {
     display: flex;
     align-items: center;
     width: 100%;
+    position: relative;
 }
-.senha-container i {
-    color: #b1b1b1;
+
+/* Scoping do ícone de senha */
+.login-page-container .senha-container i {
+    position: absolute; /* */
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
     cursor: pointer;
-    margin-left: 10px;
-    font-size: 1.6rem;
 }
 
-#button {
-    background-color: transparent; /* Igual a #informacoes */
-    margin: 0 auto; /* Centraliza */
-    padding: 0 18px; /* Remove o padding horizontal. O 18px está em #informacoes */
-    width: 455px; /* Garante que o container de botões tem a mesma largura */
-    
-    margin-bottom: 50px;
-    margin-top: 30px;
+.login-page-container #button { /* */
+    background-color: transparent; 
+    margin: 0 auto; 
+    padding: 0 18px; 
+    width: 455px; 
+    margin-top:10px;
 }
 
-.button {
+.login-page-container .button { /* */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 100%; /* Botão ocupa toda a largura do container */
-    padding: 12px 16px;
-    font-weight: 600; /*Negrito*/
+    width: 100%; 
+    padding: 12px;
+    font-weight: 600; 
     color: white; 
     text-decoration: none;
     background-color: transparent; 
@@ -117,23 +130,10 @@ body{
     font-size: 16px; 
     transition: all 0.5s ease-in-out;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
-.button:hover {
+.login-page-container .button:hover { /* */
     background-color: #fff;
     color: #000; 
-}
-
-.senha-container {
-  position: relative;
-  width: 100%;
-}
-
-.senha-container i {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  cursor: pointer;
 }
