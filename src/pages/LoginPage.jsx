@@ -18,23 +18,23 @@ function LoginPage() {
 
       <div id="informacoes">
         {/* Container para Email */}
-        <div className="input-with-icon">
+        <div className="input-wrapper">
           <i className="fas fa-envelope"></i>
-          <input type="email" className="input-login" placeholder="Insira seu e-mail" />
+          <input type="email" className="input-field" placeholder="Insira seu E-mail" />
         </div>
         
         {/* Container para Senha */}
-        <div className="input-with-icon">
+        <div className="input-wrapper">
           <i className="fas fa-lock"></i>
           <div className="senha-container">
             <input
               type={passwordType}
-              className="input-login"
+              className="input-field"
               id="senha"
               placeholder="Insira sua senha"
             />
             <i
-              className={`fas ${passwordType === 'password' ? 'fa-eye' : 'fa-eye-slash'}`}
+              className={`fas ${passwordType === 'password' ? 'fa-eye-slash' : 'fa-eye'}`}
               id="toggleSenha"
               onClick={togglePasswordVisibility}
             ></i>
@@ -42,7 +42,7 @@ function LoginPage() {
         </div>
         
         {/* Esqueceu sua senha? */}
-        <a href="#">Esqueceu sua senha?</a> 
+        <a href="#">Esqueci minha senha</a> 
       </div>
 
       <div id="button">

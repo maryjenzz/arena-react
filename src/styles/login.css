@@ -1,6 +1,7 @@
 body{
     min-height: 100vh;
-    background: linear-gradient(178deg,green, rgb(0, 0, 0) 30%);
+    background: black;
+    overflow-x: hidden;
 }
 
 #titulo{
@@ -16,7 +17,24 @@ body{
     margin: 0 auto;
     padding: 18px;
     width: 455px;
-    color: black;
+    color: white;
+}
+
+#informacoes a {
+    display: block;
+    text-align: left;
+    color: #b1b1b1;
+    font-size: 1.4rem;
+    margin-top: -10px;
+    margin-bottom: 0;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+#informacoes a:hover {
+    color: white; /* Exemplo: Muda a cor do texto de cinza (#b1b1b1) para branco */
+    text-decoration: underline; /* Exemplo: Adiciona um sublinhado */
+    transition: all 0.3s ease; /* Suaviza a transição */
 }
 
 #imagem .logo {
@@ -27,47 +45,74 @@ body{
     margin: 0 auto; 
 }
 
-.input-login {
+.input-wrapper {
     width: 100%;
-    background-color: #18181b;
-    height: 20px;
-    border-radius: 10px;
-    border: 2px solid rgba(85, 85, 85, 0.336);
-    padding: 10px 5px;
-    color: white;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.input-login::placeholder {
-    color: #8f8f8f69;
-}
-
-.input-login:focus {
-    border-bottom: 2px solid #b1b1b150;
-    border-right: 2px solid #b1b1b150;
-}
-
-#button{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    height: 50px;
     margin-bottom: 20px;
-    margin: transparent;
+    padding: 0 15px;
+
+    background-color: #18181b;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.input-wrapper .fas {
+    color: #b1b1b1;
+    font-size: 1.6rem;
+    margin-right: 10px;
+}
+ 
+.input-field {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.6rem;
+    padding: 0;
+    height: 100%;
+    outline: none;
+}
+
+.input-field::placeholder {
+    color: #8f8f8f;
+}
+.senha-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.senha-container i {
+    color: #b1b1b1;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.6rem;
+}
+
+#button {
+    background-color: transparent; /* Igual a #informacoes */
+    margin: 0 auto; /* Centraliza */
+    padding: 0 18px; /* Remove o padding horizontal. O 18px está em #informacoes */
+    width: 455px; /* Garante que o container de botões tem a mesma largura */
+    
+    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 .button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     text-align: center;
-    width: 30%;
-    padding: 8px 16px;
-    margin-top: 30px; /*Distância do botão para as informações*/
+    width: 100%; /* Botão ocupa toda a largura do container */
+    padding: 12px 16px;
     font-weight: 600; /*Negrito*/
     color: white; 
     text-decoration: none;
     background-color: transparent; 
-    border: 2px solid #b1b1b150;
+    border: 1px solid white;
     border-radius: 8px;
     font-size: 16px; 
     transition: all 0.5s ease-in-out;
@@ -75,9 +120,8 @@ body{
 }
 
 .button:hover {
-    color: white;
-    background-color: #006B39;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    background-color: #fff;
+    color: #000; 
 }
 
 .senha-container {
