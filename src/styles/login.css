@@ -10,13 +10,6 @@
     padding: 20px;
 }
 
-#titulo{ /* */
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    
-}
-
 .login-page-container #informacoes{ /* */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: transparent;
@@ -93,7 +86,7 @@
     position: relative;
 }
 
-.login-page-container .senha-container i { /* */
+.login-page-container .senha-container #toggleSenha { /* */
     position: absolute; 
     right: 10px;
     top: 50%;
