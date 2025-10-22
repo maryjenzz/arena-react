@@ -3,6 +3,7 @@
 ================================================================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 * {
   margin: 0;
@@ -453,30 +454,26 @@ header .navbar ul li a.active {
   color: #333; 
 }
 
-/* Oculta completamente a estrutura de "Links Rápidos" e "Endereço" */
-.footer .box-container {
-  display: none;
-}
-
-/* NOVO: Estilo para o container de ícones */
 .share-icons-container {
   display: flex;
-  justify-content: center; /* Centraliza os ícones */
-  gap: 3rem; /* Espaço entre os ícones */
-  margin-bottom: 1.5rem; /* Espaço entre os ícones e o texto de crédito */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem; 
+  margin-bottom: 0.5rem; 
 }
 
-.share-icons-container ion-icon { 
-  height: auto;
-  width: auto;
-  font-size: 2.8rem;
-  background: none;
-  color: green; /* Cor verde para os ícones */
-  transition: color 0.2s;
+.share-icons-container .fa-instagram.footer-icon, .fa-whatsapp.footer-icon{ 
+  font-size: 2.5rem;
+  color: #008000;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
-.share-icons-container ion-icon:hover {
-  color: #008000; /* Um verde ligeiramente diferente no hover, se desejar */
+.share-icons-container .fa-at.footer-icon {
+  font-size: 2.3rem;
+  color: #008000;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
 /* Estilo para o texto de crédito */

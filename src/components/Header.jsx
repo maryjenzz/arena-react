@@ -15,7 +15,7 @@ function Header() {
       {/* Navegação original para o desktop - esta vai aparecer em telas grandes */}
       <nav className="navbar">
           <ul>
-              <li><Link to="/" className="active">Home</Link></li>
+              <li><a href="#home">Home</a></li>
               <li><a href="#modalidades">Modalidades</a></li>
               <li><a href="#horarios">Horários</a></li>
               <li><a href="#localizacao">Localização</a></li>
