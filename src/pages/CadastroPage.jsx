@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/cadastro.css'; // Importa o CSS de cadastro
+import '../styles/cadastro.css'; 
 
 function CadastroPage() {
   const [passwordType, setPasswordType] = useState('password');

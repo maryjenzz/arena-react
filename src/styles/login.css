@@ -1,5 +1,5 @@
 
-.login-page-container {
+.login-page-container { /* */
     min-height: 100vh;
     background: black;
     overflow-x: hidden;
@@ -10,14 +10,12 @@
     padding: 20px;
 }
 
-#titulo{
+#titulo{ /* */
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     
 }
-
-/* 2. TODOS OS SELETORES AGORA SÃO PREFIXADOS POR .login-page-container */
 
 .login-page-container #informacoes{ /* */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -88,7 +86,6 @@
     color: #8f8f8f;
 }
 
-/* Scoping do container de senha */
 .login-page-container .senha-container {
     display: flex;
     align-items: center;
@@ -96,9 +93,8 @@
     position: relative;
 }
 
-/* Scoping do ícone de senha */
-.login-page-container .senha-container i {
-    position: absolute; /* */
+.login-page-container .senha-container i { /* */
+    position: absolute; 
     right: 10px;
     top: 50%;
     transform: translateY(-50%);

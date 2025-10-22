@@ -1,11 +1,9 @@
-/* ==================================================================
-   01. Importações de Fontes e Estilos Gerais
-================================================================== */
+/* =============================== 01. Importações de Fontes e Estilos Gerais =============================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
-* {
+* { /* */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,34 +13,33 @@
   transition: all 0.2s linear;
 }
 
-html {
-  font-size: 62.5%; /* Base para usar 'rem' como unidade (1rem = 10px) */
+html { /* */
+  font-size: 62.5%;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-body {
+body { /* */
   font-family: "Poppins", sans-serif;
   font-size: 1.6rem; 
-  color: #333; /* Cor de texto padrão escura */
+  color: #333;
   background-color: #e0e0e0;
 }
 
-.page-content {
-  padding-top: 6.5rem; /* Espaço para o header fixo */
+.page-content { /* */
+  padding-top: 6.5rem; 
 }
-/* Estilo da seleção de texto */
-*::selection {
+
+*::selection { /* */
   background: green;
   color: #fff;
 }
 
-/* Estilos gerais para todas as seções */
-section {
+section { /* */
   padding: 4rem 9%;
 }
 
-.heading {
+.heading { /* */
   font-size: 3.5rem;
   color: #333;
   font-weight: 800;
@@ -50,15 +47,12 @@ section {
   margin-bottom: 3rem;
 }
 
-.heading span {
+.heading span { /* */
   color: green;
 }
 
-
-/* ==================================================================
-   02. Header e Barra de Navegação (Desktop)
-================================================================== */
-header {
+/* =============================== 02. Header e Barra de Navegação (Desktop) =============================== */
+header { /* */
   position: fixed;
   top: 0;
   left: 0;
@@ -73,49 +67,42 @@ header {
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.3);
 }
 
-.logo {
+.logo { /* */
   max-height: 5.5rem;
   object-fit: contain;
 }
 
-header .navbar ul {
+header .navbar ul { /* */
   display: flex !important;
   align-items: center;
   list-style: none;
   width: 100%;
-  gap: 2rem; /* SOLUÇÃO: Espaçamento consistente entre os links */
+  gap: 2rem; 
   margin: 0;
   padding: 0;
 }
 
-header .navbar li {
-  margin: 0; /* A margem agora é controlada pelo 'gap' */
-}
-
-header .navbar ul li a {
+header .navbar ul li a { /* */
   font-size: 1.6rem;
   color: #0b2b0e;
   font-weight: 600;
-  padding-bottom: 0.5rem; /* Padding para o border-bottom ter espaço */
+  padding-bottom: 0.5rem;
 }
 
 header .navbar ul li a:hover,
-header .navbar ul li a.active {
+header .navbar ul li a.active { /* */
   color: green;
 }
 
 
-/* ==================================================================
-   03. Botões (Principal e Login)
-================================================================== */
+/* =============================== 03. Botões (Principal e Login) =============================== */
 
-/* Estilo para o botão de menu (mobile) - similar ao btn-principal */
-.btn-menu-mobile {
+.btn-menu-mobile { /* */
   display: inline-block;
   font-style: bold;
-  padding: 0.9rem 2rem; /* Ajuste o padding conforme o seu btn-principal */
+  padding: 0.9rem 2rem; 
   border-radius: 0.5rem;
-  background: green; /* Cor verde do seu botão */
+  background: green; 
   color: #fff;
   font-size: 1.7rem;
   font-weight: 500;
@@ -123,72 +110,68 @@ header .navbar ul li a.active {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease;
-  border: none; /* Garante que não há borda padrão de botão */
+  border: none; 
 }
 
-.btn-menu-mobile:hover {
-  background: green; /* Cor verde mais escura ao passar o mouse */
+.btn-menu-mobile:hover { /* */
+  background: green; 
 }
 
-/* Estilos para o container do dropdown */
-.mobile-dropdown-container {
+.mobile-dropdown-container { /* */
   position: relative;
-  display: inline-block; /* Para o botão ser respeitado no layout */
+  display: inline-block; 
 }
 
-/* Estilos para o conteúdo do dropdown quando aberto */
-.mobile-dropdown-content {
-  display: none; /* Escondido por padrão */
+.mobile-dropdown-content { /* */
+  display: none; 
   position: absolute;
-  background-color: #f9f9f9; /* Fundo claro para o dropdown */
+  background-color: #f9f9f9; 
   min-width: 200px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1000;
-  right: 0; /* Alinha o dropdown à direita do botão */
+  right: 0; 
   border-radius: 0.5rem;
-  overflow-x: hidden; /* Garante que o conteúdo não vaze */
-  margin-top: 0.5rem; /* Espaçamento entre o botão e o dropdown */
+  overflow-x: hidden;
+  margin-top: 0.5rem; 
 }
 
-.mobile-dropdown-content.show {
-  display: block; /* Mostra o dropdown quando a classe 'show' está presente */
+.mobile-dropdown-content.show { /* */
+  display: block; 
 }
 
-/* Estilos para os links dentro do dropdown */
-.mobile-dropdown-content ul {
-  list-style: none; /* Remove marcadores de lista */
+.mobile-dropdown-content ul { /* */
+  list-style: none; 
   margin: 0;
   padding: 0;
-  flex-direction: column; /* Empilha os itens verticalmente */
-  gap: 0; /* Remove espaçamento horizontal */
+  flex-direction: column; 
+  gap: 0; 
 }
 
-.mobile-dropdown-content ul li {
+.mobile-dropdown-content ul li { /* */
   width: 100%;
 }
 
-.mobile-dropdown-content ul li a {
+.mobile-dropdown-content ul li a { /* */
   color: #333;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   font-size: 1.6rem;
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align: left; 
 }
 
-.mobile-dropdown-content ul li a:hover {
+.mobile-dropdown-content ul li a:hover { /* */
   background-color: #e0e0e0;
-  color: green; /* Cor verde no hover */
+  color: green; 
 }
 
-/* Botão Principal na Seção Home */
-.btn-principal {
+.btn-principal { /* */
   display: inline-block;
   margin-top: 2rem;
   padding: 1.2rem 4rem;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff; /* Texto branco para melhor contraste */
+  color: #fff; 
   background: green;
   border-radius: 8px;
   text-transform: uppercase;
@@ -197,34 +180,30 @@ header .navbar ul li a.active {
   transition: all 0.3s ease;
 }
 
-.btn-principal:hover {
+.btn-principal:hover { /* */
   transform: scale(1.05);
-  color: #fff; /* Mantém o texto branco no hover */
+  color: #fff; 
 }
 
-/* Botão de Login na Navbar */
-.navbar ul li a.btn-login {
+.navbar ul li a.btn-login { /* */
   background: green;
   color: #fff;
   padding: 0.3rem 4rem;
   border-radius: 30px;
   font-weight: 600;
-  border: 2px solid transparent; /* Prepara para o hover sem "pular" */
+  border: 2px solid transparent; 
   transition: all 0.3s ease-in-out;
 }
 
-.navbar ul li a.btn-login:hover {
+.navbar ul li a.btn-login:hover { /* */
   background: #fff;
   color: green;
   border: 2px solid green;
 }
 
+/* =============================== 04. Seções da Página (Home, Modalidades, Localização) =============================== */
 
-/* ==================================================================
-   04. Seções da Página (Home, Modalidades, Localização)
-================================================================== */
-
-#home {
+#home { /* */
   min-height: 100vh;
   display: flex;
   flex-flow: column;
@@ -240,39 +219,39 @@ header .navbar ul li a.active {
   color: #fff;
 }
 
-#home .heading {
-    font-size: 5rem; /* Ajuste o tamanho da fonte para o título principal */
+#home .heading { /* */
+    font-size: 5rem; 
     color: #fff;
     margin-top: 0;
     margin-bottom: 0.5rem;
     text-shadow: black 2px 2px 2px;
 }
 
-#home .home-logo {
-    width: 200px; /* Ajuste o tamanho do logo conforme necessário */
+#home .home-logo { /* */
+    width: 200px; 
     margin-bottom: 1rem;
 }
 
-#home .heading span {
+#home .heading span { /* */
     color: #fff
 }
 
-#home p {
+#home p { /* */
     font-size: 2rem;
     color: #eee;
     margin-bottom: 2rem;
     text-shadow: black 2px 1px 1px;
 }
 
-#home .btn-principal {
+#home .btn-principal { /* */
     margin-top: 2rem;
 }
 
-#modalidades {
-  background-color: #e1e0e0; /* Fundo branco para melhor contraste dos cards */
+#modalidades { /* */
+  background-color: #e1e0e0; 
 }
 
-.modalidades-container {
+.modalidades-container { /* */
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -280,8 +259,8 @@ header .navbar ul li a.active {
   gap: 2rem;
 }
 
-.modalidade-card {
-  background: #f9f9f9; /* Fundo cinza claro para o card */
+.modalidade-card { /* */
+  background: #f9f9f9; 
   width: 320px;
   padding: 35px 25px;
   text-align: center;
@@ -291,34 +270,34 @@ header .navbar ul li a.active {
   transition: all 0.3s ease-in-out;
 }
 
-.modalidade-card:hover {
+.modalidade-card:hover { /* */
   transform: translateY(-10px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.modalidade-card i {
+.modalidade-card i { /* */
   font-size: 5rem;
   color: green;
   margin-bottom: 1.5rem;
 }
 
-.modalidade-card h3 {
+.modalidade-card h3 { /* */
   font-size: 2rem;
   color: #333;
   margin-bottom: 1rem;
 }
 
-.modalidade-card p {
+.modalidade-card p { /* */
   font-size: 1.5rem;
   color: #666;
   line-height: 1.6;
 }
 
-#localizacao {
+#localizacao { /* */
   background-color: #e1e0e0;
 }
 
-#localizacao .sub-heading {
+#localizacao .sub-heading { 
 /* R. Getúlio Vargas, 1015 - Centro, Canoinhas - SC */
   font-size: 1.8rem;
   color: #333;
@@ -329,17 +308,17 @@ header .navbar ul li a.active {
   text-align: center;
 }
 
-.map-container {
+.map-container { /* */
   position: relative;
   width: 100%;
-  padding-bottom: 40%; /* Proporção do mapa (altura) */
+  padding-bottom: 40%; 
   height: 0;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.map-container iframe {
+.map-container iframe { /* */
   position: absolute;
   top: 0;
   left: 0;
@@ -347,20 +326,18 @@ header .navbar ul li a.active {
   height: 100%;
 }
 
-/* ==================================================================
-   04a. Seção Horários (NOVO)
-================================================================== */
-#horarios {
+/* =============================== 04a. Seção Horários =============================== */
+#horarios { /* */
   background-color: #f9f9f9;
 }
 
-.tabela-horarios {
+.tabela-horarios { /* */
   max-width: 800px;
   margin: 0 auto;
-  overflow-x: auto; /* Para rolagem em telas pequenas */
+  overflow-x: auto; 
 }
 
-.tabela-horarios table {
+.tabela-horarios table { /* */
   width: 100%;
   border-collapse: collapse;
   text-align: center;
@@ -369,22 +346,22 @@ header .navbar ul li a.active {
 }
 
 .tabela-horarios th,
-.tabela-horarios td {
+.tabela-horarios td { /* */
   padding: 1.5rem;
   border: 1px solid #ddd;
 }
 
-.tabela-horarios thead {
+.tabela-horarios thead { /* */
   background-color: green;
   color: #fff;
   font-size: 1.8rem;
 }
 
-.tabela-horarios tbody tr:nth-child(even) {
+.tabela-horarios tbody tr:nth-child(even) { /* */
   background-color: #f2f2f2;
 }
 
-.aviso-horarios {
+.aviso-horarios { /* */
   text-align: center;
   margin-top: 2rem;
   font-style: italic;
@@ -392,22 +369,20 @@ header .navbar ul li a.active {
   font-size: 1.4rem;
 }
 
-/* ==================================================================
-   04b. Seção Contato
-================================================================== */
+/* =============================== 04b. Seção Contato =============================== */
 
-#contato {
+#contato { /* */
   background-color: #f9f9f9;
 }
 
-.contato-container form {
+.contato-container form { /* */
   max-width: 70rem;
   margin: 1rem auto;
   text-align: center;
 
 }
 
-.contato-container form .contato-box {
+.contato-container form .contato-box {  /* */
   width: 100%;
   margin: 1.5rem 0;
   padding: 2rem;
@@ -420,14 +395,14 @@ header .navbar ul li a.active {
 
 }
 
-.contato-container form textarea {
+.contato-container form textarea { /* */
   resize: none;
   height: 20rem;
   font-family: sans-serif;
   color: #333;
 }
 
-.contato-container form .btn-principal {
+.contato-container form .btn-principal { /* */
     margin-top: 1rem;
     padding: 1.2rem 4rem;
     font-size: 1.5rem;  
@@ -444,17 +419,15 @@ header .navbar ul li a.active {
     
 }
 
-/* ==================================================================
-   05. Rodapé (Footer)
-================================================================== */
-.footer {
+/* =============================== 05. Rodapé (Footer =============================== */
+.footer { /* */
   min-height: auto;
-  padding: 2rem 9% 2rem 9%; /* Espaçamento ajustado */
-  background: white; /* Fundo cinza escuro (como na imagem) */
+  padding: 2rem 9% 2rem 9%;
+  background: white; 
   color: #333; 
 }
 
-.share-icons-container {
+.share-icons-container { /* */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -462,35 +435,32 @@ header .navbar ul li a.active {
   margin-bottom: 0.5rem; 
 }
 
-.share-icons-container .fa-instagram.footer-icon, .fa-whatsapp.footer-icon{ 
+.share-icons-container .fa-instagram.footer-icon, .fa-whatsapp.footer-icon{ /* */
   font-size: 2.5rem;
   color: #008000;
   transition: all 0.2s;
   cursor: pointer;
 }
 
-.share-icons-container .fa-at.footer-icon {
+.share-icons-container .fa-at.footer-icon { /* */
   font-size: 2.3rem;
   color: #008000;
   transition: all 0.2s;
   cursor: pointer;
 }
 
-/* Estilo para o texto de crédito */
-.footer .credit {
+.footer .credit { /* */
   padding-top: 0;
   margin-top: 0;
   text-align: center;
   font-size: 1.5rem;
   font-family: "Nunito", sans-serif;
-  color: #666; /* Cor cinza clara para o texto de crédito (como na imagem) */
-  border-top: none; /* Garante que não haja borda superior */
+  color: #666; 
+  border-top: none; 
 }
 
-/* ==================================================================
-   06. Componentes (Scroll Top)
-================================================================== */
-#scroll-top {
+/* =============================== 06. Componentes (Scroll Top) =============================== */
+#scroll-top { /* */
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -500,59 +470,49 @@ header .navbar ul li a.active {
   color: #fff;
   border-radius: 50%;
   z-index: 1000;
-  opacity: 0; /* Inicia invisível */
+  opacity: 0; 
   visibility: hidden;
   transition: all 0.4s ease;
 }
 
-#scroll-top.active {
-  opacity: 1; /* Fica visível */
+#scroll-top.active { /* */
+  opacity: 1; 
   visibility: visible;
 }
 
-/* Estilos Específicos para a Navegação no Desktop */
-header .navbar.desktop-menu {
-  display: flex; /* Garante que a navegação original apareça no desktop */
+header .navbar.desktop-menu { /* */
+  display: flex; 
 }
 
-/* Estilos Específicos para o Menu Dropdown (Mobile) */
-.mobile-dropdown {
-  display: none; /* Esconde o dropdown por padrão no desktop */
+.mobile-dropdown { /* */
+  display: none; 
 }
 
-/* ==================================================================
-   Media Queries para Dispositivos Móveis
-================================================================== */
+/* =============================== Media Queries para Dispositivos Móveis =============================== */
 
-@media (max-width: 768px) {
-  /* Esconde a navegação principal (desktop) */
+@media (max-width: 768px) { /* */
   header .navbar {
     display: none;
   }
 
-  /* Mostra o container do dropdown mobile */
-  .mobile-dropdown-container {
-    display: block; /* Exibe o dropdown mobile */
-    margin-left: auto; /* Empurra para a direita, próximo ao logo */
-    margin-right: 2rem; /* Espaçamento da borda */
+  .mobile-dropdown-container { /* */
+    display: block; 
+    margin-left: auto; 
+    margin-right: 2rem;
   }
 
-  header {
-      /* Talvez precise de um ajuste no flex-direction ou align-items aqui
-         se o logo e o botão não estiverem alinhados */
-      flex-flow: row wrap; /* Permite que os itens quebrem se necessário */
-      justify-content: space-between; /* Espaço entre logo e botão */
-      align-items: center; /* Alinha verticalmente */
+  header { /* */
+      flex-flow: row wrap; 
+      justify-content: space-between; 
+      align-items: center; 
   }
 }
 
-/* Em telas maiores que 768px, certifique-se que o mobile-dropdown-container está oculto */
-@media (min-width: 769px) {
+@media (min-width: 769px) { /* */
   .mobile-dropdown-container {
     display: none;
   }
-  /* E garanta que a navegação desktop está visível */
-  header .navbar {
-    display: flex; /* Ou block, dependendo do seu layout original */
+  header .navbar { /* */
+    display: flex;
   }
 }

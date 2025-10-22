@@ -1,7 +1,5 @@
-/* src/styles/cadastro.css (CORRIGIDO) */
 
-/* 1. CONTAINER PRINCIPAL (ESTILO ANTERIORMENTE NO BODY) */
-.cadastro-page-container {
+.cadastro-page-container { /* */
   background-color: #000;
   color: #fff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -93,7 +91,6 @@
   cursor: pointer;
 }
 
-/* Scoping da tag <button> e da classe de botão primário */
 .cadastro-page-container button,
 .cadastro-page-container .btn-primary { /* */
   margin-top: 20px;
@@ -116,12 +113,11 @@
   color: #000;
 }
 
-.cadastro-page-container .link-login-extra {
-    /* Faz o link parecer um botão (copiado do .btn-primary) */
+.cadastro-page-container .link-login-extra { /* */
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none; /* Remove sublinhado */
+    text-decoration: none;
     
     width: 100%;
     padding: 12px;
@@ -131,18 +127,15 @@
     cursor: pointer;
     transition: 0.3s;
 
-    /* Estilos Visuais Secundários (Fundo Transparente com Borda) */
     background-color: transparent;
     border: 1px solid #fff;
     color: #fff;
     
-    /* Espaçamento entre os dois botões */
     gap: 15px;
     margin-bottom: 10px;
 }
 
-/* Efeito Hover para o novo botão */
-.cadastro-page-container .link-login-extra:hover {
+.cadastro-page-container .link-login-extra:hover { /* */
     background-color: #fff;
     color: #000;
 }

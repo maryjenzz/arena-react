@@ -12,7 +12,6 @@ function Header() {
 
   return (
     <header>      
-      {/* Navegação original para o desktop - esta vai aparecer em telas grandes */}
       <nav className="navbar">
           <ul>
               <li><a href="#home">Home</a></li>
@@ -24,22 +23,19 @@ function Header() {
           </ul>
       </nav>
 
-      {/* Container do dropdown para mobile - aparece apenas em telas pequenas */}
+      {/* Menu para dispositivos móveis */}
       <div className="mobile-dropdown-container">
-        {/* Botão de menu que abre/fecha o dropdown */}
         <button className="btn-menu-mobile" onClick={toggleDropdown}> 
           <i className={`fas ${isDropdownOpen ? 'fa-times' : 'fa-bars'}`}></i>
         </button>
         
         <div className={`mobile-dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
           <ul>
-            {/* Usa <a> com href="#home" para forçar a rolagem para a âncora */}
             <li><a href="#home" onClick={toggleDropdown}>Home</a></li> 
             <li><a href="#modalidades" onClick={toggleDropdown}>Modalidades</a></li>
             <li><a href="#horarios" onClick={toggleDropdown}>Horários</a></li>
             <li><a href="#localizacao" onClick={toggleDropdown}>Localização</a></li>
             <li><a href="#contato" onClick={toggleDropdown}>Contato</a></li>
-            {/* O link de Login deve continuar sendo <Link> pois é para outra ROTA */}
             <li><Link to="/login" onClick={toggleDropdown}>Login</Link></li> 
           </ul>
         </div>

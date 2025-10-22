@@ -11,23 +11,18 @@ function LoginPage() {
   };
   
   return (
-    // <--- NOVO CONTAINER DE ESCOPO
     <div className="login-page-container">
       <div id="imagem">
         <img src={logo} alt="Logo Arena Máfia" className="logo" />
       </div>
 
       <div id="informacoes">
-        {/* Container para TELEFONE (Antigo Email) */}
         <div className="input-wrapper">
-          {/* ÍCONE TELEFONE - Material Icons */}
           <span className="material-icons">phone</span> 
           <input type="tel" className="input-field" placeholder="Insira seu Celular" />
         </div>
         
-        {/* Container para Senha */}
         <div className="input-wrapper">
-          {/* ÍCONE CADEADO ESQUERDO - Material Icons */}
           <span className="material-icons">lock</span>
           <div className="senha-container">
             <input
@@ -36,7 +31,6 @@ function LoginPage() {
               id="senha"
               placeholder="Insira sua senha"
             />
-            {/* ÍCONE TOGGLE - Material Icons */}
             <span
               className="material-icons"
               id="toggleSenha"
@@ -47,7 +41,6 @@ function LoginPage() {
           </div>
         </div>
         
-        {/* Esqueceu sua senha? */}
         <a href="#">Esqueci minha senha</a> 
       </div>
 
@@ -57,7 +50,6 @@ function LoginPage() {
         <Link className="button" to="/">VOLTAR</Link> 
       </div>
     </div>
-    // ---> FIM DO CONTAINER DE ESCOPO
   );
 }
 
