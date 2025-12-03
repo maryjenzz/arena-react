@@ -15,7 +15,8 @@
     background-color: transparent;
     margin: 0 auto;
     padding: 18px;
-    width: 455px;
+    width: 100%;
+    max-width: 455px;
     color: white;
 }
 
@@ -99,7 +100,8 @@
     background-color: transparent; 
     margin: 0 auto; 
     padding: 0 18px; 
-    width: 455px; 
+    width: 100%; 
+    max-width: 455px;
     margin-top:10px;
 }
 
@@ -125,4 +127,46 @@
 .login-page-container .button:hover { /* */
     background-color: #fff;
     color: #000; 
+}
+
+@media (max-width: 480px) {
+    .login-page-container { 
+        padding: 10px; 
+    }
+    
+    .login-page-container #informacoes{ 
+        padding: 10px; 
+    }
+    
+    .login-page-container #button {
+        padding: 0 10px; 
+    }
+    
+    .login-page-container #imagem .logo {
+        width: 100px;
+    }
+    
+    .login-page-container .input-wrapper { 
+        height: 35px; 
+        padding: 8px 10px;
+        margin-bottom: 8px; 
+    }
+    
+    .login-page-container .input-field {
+        font-size: 1.4rem; 
+    }
+
+    .login-page-container .input-wrapper .material-icons { 
+        font-size: 1.4rem; 
+    }
+
+    .login-page-container .button {
+        padding: 10px; 
+        font-size: 14px; 
+    }
+    
+    .login-page-container #informacoes a {
+        font-size: 1.2rem; 
+        padding-left: 10px;
+    }
 }

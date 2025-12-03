@@ -31,7 +31,7 @@ body { /* */
 }
 
 section { /* */
-  padding: 4rem 9%;
+  padding: 4rem 4rem;
 }
 
 .heading { /* */
@@ -44,4 +44,11 @@ section { /* */
 
 .heading span { /* */
   color: green;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
 }
