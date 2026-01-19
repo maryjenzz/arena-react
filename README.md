@@ -1,48 +1,25 @@
-## Como Rodar o Projeto (Arena Máfia React)
+# Arena Máfia (React)
 
-Siga os passos abaixo para instalar as dependências e executar o projeto em seu ambiente local.
+> **Status do Projeto:** ⚠️ Em desenvolvimento
 
-### Pré-requisitos
+O **Arena Máfia** é uma aplicação web desenvolvida em React para a primeira arena de esportes de areia de Canoinhas, SC. O objetivo do projeto é fornecer uma plataforma moderna e intuitiva para que os frequentadores da arena possam conhecer as modalidades oferecidas, verificar horários de funcionamento e realizar agendamentos.
 
-Certifique-se de ter o **Node.js** e o **npm** (ou Yarn/pnpm) instalados em sua máquina.
+## 📌 Sobre o Projeto
 
-### 1. Instalação de Dependências
+A plataforma serve como o hub digital da Arena Máfia, permitindo que os usuários interajam com o estabelecimento de forma rápida e eficiente. O site apresenta:
 
-Navegue até o diretório raiz do projeto e execute o comando de instalação para baixar todas as dependências listadas no `package.json`:
+* **Apresentação das Modalidades**: Detalhes sobre a prática de Beach Tennis, Futevôlei e Vôlei de Praia.
+* **Informações de Funcionamento**: Tabela completa com os horários de atendimento durante a semana, finais de semana e feriados.
+* **Localização Integrada**: Mapa interativo mostrando o endereço exato da arena no centro de Canoinhas.
+* **Sistema de Reservas**: EM DESENVOLVIMENTO.
+* **Área do Usuário**: Interface de login e cadastro para futuros recursos personalizados (como histórico de reservas e perfil do atleta).
 
-```
-npm install
-# ou yarn install
-# ou pnpm install
-```
+## 🚀 Funcionalidades Principais
 
-### 2. Execução do Servidor de Desenvolvimento
+* **Design Responsivo**: Adaptado para acesso em computadores, tablets e smartphones.
+* **Navegação Dinâmica**: Sistema de rotas para transição fluida entre a página inicial, login e cadastro.
+* **Botão Flutuante de Contato**: Acesso rápido ao atendimento via WhatsApp em qualquer ponto da página inicial.
 
-Para iniciar a aplicação em modo de desenvolvimento com Hot Module Replacement (HMR), execute o script dev do Vite:
+---
 
-```
-npm run dev
-# ou yarn dev
-# ou pnpm dev
-```
-A aplicação estará disponível em http://localhost:5173/ (ou em uma porta diferente, conforme indicado no terminal).
-
-### 3. Build para Produção (Deployment)
-
-Para gerar uma versão otimizada do projeto pronta para deploy (produção), utilize o comando build:
-
-```
-npm run build
-# ou yarn build
-# ou pnpm build
-```
-Os arquivos estáticos serão gerados no diretório dist/.
-
-### 4. Visualizar o Build de Produção
-Após rodar o comando build, você pode testar a versão de produção localmente usando o comando preview:
-
-```
-npm run preview
-# ou yarn preview
-# ou pnpm preview
-```
+*O link do site oficial será adicionado em breve.*
