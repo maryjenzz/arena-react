@@ -17,7 +17,7 @@ function HomePage() {
                     <a href="https://wa.me/47999808398?text=Ol%C3%A1%21+Gostaria+de+fazer+uma+reserva." className="btn-principal" target="_blank">Faça sua Reserva</a>
                 </section>
                 <section id="modalidades">
-                    <h2 className="heading">Nossas <span>Modalidades</span></h2>
+                    <h2 className="heading">Modalidades</h2>
                     <div className="modalidades-container">
                         <CardModalidades
                             iconClass="fas fa-table-tennis"
@@ -38,7 +38,7 @@ function HomePage() {
                 </section>
 
                 <section id="horarios">
-                    <h2 className="heading">Nossos <span>Horários</span></h2>
+                    <h2 className="heading">Horários</h2>
                     <div className="tabela-horarios">
                         <table>
                             <thead>
@@ -67,7 +67,7 @@ function HomePage() {
                 </section>
 
                 <section id="localizacao">
-                    <h2 className="heading">Nossa <span>Localização</span></h2>
+                    <h2 className="heading">Localização</h2>
                     <p className="sub-heading">R. Getúlio Vargas, 1015 - Centro, Canoinhas - SC</p>
                     <div className="map-container">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3550.456884970427!2d-50.38965802381282!3d-26.17833007709214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e1d332679a9f93%3A0x8dd5e9a039755716!2sR.%20Get%C3%BAlio%20Vargas%2C%201015%20-%20Centro%2C%20Canoinhas%20-%20SC%2C%2089460-086!5e0!3m2!1spt-BR!2sbr!4v1686939460243!5m2!1spt-BR!2sbr" width="600" height="450" style={{ border: 0 }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>

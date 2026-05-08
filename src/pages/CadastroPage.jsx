@@ -1,107 +1,67 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/cadastro.css'; 
+import logoLobo from '../assets/imagens/logo-arena-mafia.png';
+import '../styles/login.css';
 
 function CadastroPage() {
   const [passwordType, setPasswordType] = useState('password');
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
 
-  const togglePasswordVisibility = () => {
-    setPasswordType(passwordType === 'password' ? 'text' : 'password');
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setConfirmPasswordType(confirmPasswordType === 'password' ? 'text' : 'password');
-  };
-
   return (
-    <div className="cadastro-page-container">
-    <div className="form-container">
-      <h2>Crie a sua conta</h2>
+    <div className="login-page-container">
+      <div className="bg-logo-overlay">
+        <img src={logoLobo} alt="Arena Máfia Logo" />
+      </div>
 
-      <form>
-        <div className="input-group">
-          <label htmlFor="nome">Nome Completo</label>
-          <div className="input-content">
-          <span className="material-icons icon">person</span>
-          <input
-            type="text"
-            id="nome"
-            placeholder="João Pedro da Silva"
-            required
-          />
-        </div>
-        </div>
+      <div className="login-content">
+        <h1 className="login-title">Crie sua conta <span>.</span></h1>
 
-        <div className="input-group">
-          <label htmlFor="usuario">Nome de usuário</label>
-          <div className="input-content">
-          <span className="material-icons icon">person</span>
-          <input
-            type="text"
-            id="usuario"
-            placeholder="joao_2002"
-            required
-          />
-        </div>
-        </div>
+        <form>
+          <div className="form-group">
+            <label>Nome Completo</label>
+            <div className="input-wrapper">
+              <input type="text" placeholder="João Pedro da Silva" className="input-field" required />
+            </div>
+          </div>
 
-        <div className="input-group">
-          <label htmlFor="celular">Celular</label>
-          <div className="input-content">
-          <span className="material-icons icon">phone</span>
-          <input
-            type="tel"
-            id="celular"
-            placeholder="(XX) XXXXX-XXXX"
-            required
-          />
-        </div>
-        </div>
+          <div className="form-group">
+            <label>Nome de usuário</label>
+            <div className="input-wrapper">
+              <input type="text" placeholder="joao_2002" className="input-field" required />
+            </div>
+          </div>
 
-        <div className="input-group">
-          <label htmlFor="senha">Senha</label>
-          <div className="input-content">
-          <span className="material-icons icon">lock</span>
-          <input
-            type={passwordType}
-            id="senha"
-            placeholder="Digite sua senha"
-            required
-          />
-          <span
-            className="material-icons toggle-password"
-            onClick={togglePasswordVisibility}
-          >
-            {passwordType === "password" ? "visibility_off" : "visibility"}
-          </span>
-        </div>
-        </div>
+          <div className="form-group">
+            <label>Celular</label>
+            <div className="input-wrapper">
+              <input type="tel" placeholder="(XX) XXXXX-XXXX" className="input-field" required />
+            </div>
+          </div>
 
-        <div className="input-group">
-          <label htmlFor="confirmar-senha">Confirmar Senha</label>
-          <div className="input-content">
-          <span className="material-icons icon">lock</span>
-          <input
-            type={confirmPasswordType}
-            id="confirmar-senha"
-            placeholder="Confirmar senha"
-            required
-          />
-          <span
-            className="material-icons toggle-password"
-            onClick={toggleConfirmPasswordVisibility}
-          >
-            {confirmPasswordType === "password" ? "visibility_off" : "visibility"}
-          </span>
-        </div>
-        </div>
+          <div className="form-group">
+            <label>Senha</label>
+            <div className="input-wrapper">
+              <input type={passwordType} placeholder="Digite sua senha" className="input-field" required />
+            </div>
+          </div>
 
-        <button type="submit" className="btn-primary">
-          CRIAR CONTA
-        </button>
-        <Link to="/login" className="link-login-extra">FAZER LOGIN</Link>
+          <div className="form-group">
+            <label>Confirmar Senha</label>
+            <div className="input-wrapper">
+              <input type={confirmPasswordType} placeholder="Confirmar senha" className="input-field" required />
+            </div>
+          </div>
+
+          <button type="submit" className="btn-entrar">CRIAR CONTA</button>
+
+          <div className="create-account-area">
+            <Link to="/login" className="create-link">Já tem uma conta? Fazer login.</Link>
+          </div>
         </form>
+
+        <Link to="/" className="back-arrow">
+          <i className="fas fa-arrow-left"></i>
+        </Link>
       </div>
     </div>
   );

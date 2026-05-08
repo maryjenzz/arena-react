@@ -1,172 +1,133 @@
+.login-page-container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  position: relative;
+}
 
-.login-page-container { /* */
-    min-height: 100vh;
-    background: black;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
+.bg-logo-overlay {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-logo-overlay img {
+  max-width: 85%;
+  height: auto;
+  opacity: 0.1;
+}
+
+.login-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%;
+  z-index: 10;
+}
+
+.login-title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.login-title span {
+  color: #388e3c;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.form-group label {
+  display: block;
+  color: #888;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+
+.input-wrapper {
+  background-color: #141414;
+  border: 1px solid #222;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper.focus-green,
+.input-wrapper:focus-within {
+  border-color: #388e3c;
+  box-shadow: 0 0 15px rgba(56, 142, 60, 0.4);
+}
+
+.input-field {
+  width: 100%;
+  padding: 18px;
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  font-size: 1.3rem;
+}
+
+.form-footer-links {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.forgot-password,
+.create-link {
+  color: #666;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.btn-entrar {
+  width: 100%;
+  max-width: 450px;
+  background-color: #388e3c;
+  color: white;
+  padding: 16px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+
+.create-account-area {
+  margin-top: 10px;
+  text-align: center;
+  max-width: 450px;
+  margin-bottom: 40px;
+}
+
+.back-arrow {
+  position: absolute;
+  bottom: 70px;
+  left: 40px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .bg-logo-overlay {
+    display: none;
+  }
+  .login-page-container {
     justify-content: center;
+  }
+  .login-content {
     align-items: center;
     padding: 20px;
-}
-
-.login-page-container #informacoes{ /* */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: transparent;
-    margin: 0 auto;
-    padding: 18px;
-    width: 100%;
-    max-width: 455px;
-    color: white;
-}
-
-.login-page-container #informacoes a { /* */
-    display: block;
-    text-align: left;
-    color: #b1b1b1;
-    font-size: 1.4rem;
-    margin-top: 10px;
-    margin-bottom: 0;
-    text-decoration: none;
-    padding-left: 20px;
-}
-
-.login-page-container #informacoes a:hover { /* */
-    color: white;
-    text-decoration: underline;
-    transition: all 0.3s ease;
-}
-
-.login-page-container #imagem .logo { /* */
-    width: 140px;
-    max-height: none;
-    height: auto;
-    display: block;
-    margin: 0 auto; 
-}
-
-.login-page-container .input-wrapper { /* */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 40px;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-
-    background-color: #18181b;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.login-page-container .input-wrapper .material-icons { /* */
-    color: #b1b1b1;
-    font-size: 1.6rem;
-    margin-right: 10px;
-}
- 
-.login-page-container .input-field { /* */
-    width: 100%;
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 1.6rem;
-    padding: 0;
-    height: 100%;
-    outline: none;
-}
-
-.login-page-container .input-field::placeholder { /* */
-    color: #8f8f8f;
-}
-
-.login-page-container .senha-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: relative;
-}
-
-.login-page-container .senha-container #toggleSenha { /* */
-    position: absolute; 
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    cursor: pointer;
-}
-
-.login-page-container #button { /* */
-    background-color: transparent; 
-    margin: 0 auto; 
-    padding: 0 18px; 
-    width: 100%; 
-    max-width: 455px;
-    margin-top:10px;
-}
-
-.login-page-container .button { /* */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%; 
-    padding: 12px;
-    font-weight: 600; 
-    color: white; 
-    text-decoration: none;
-    background-color: transparent; 
-    border: 1px solid white;
-    border-radius: 8px;
-    font-size: 16px; 
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.login-page-container .button:hover { /* */
-    background-color: #fff;
-    color: #000; 
-}
-
-@media (max-width: 480px) {
-    .login-page-container { 
-        padding: 10px; 
-    }
-    
-    .login-page-container #informacoes{ 
-        padding: 10px; 
-    }
-    
-    .login-page-container #button {
-        padding: 0 10px; 
-    }
-    
-    .login-page-container #imagem .logo {
-        width: 100px;
-    }
-    
-    .login-page-container .input-wrapper { 
-        height: 35px; 
-        padding: 8px 10px;
-        margin-bottom: 8px; 
-    }
-    
-    .login-page-container .input-field {
-        font-size: 1.4rem; 
-    }
-
-    .login-page-container .input-wrapper .material-icons { 
-        font-size: 1.4rem; 
-    }
-
-    .login-page-container .button {
-        padding: 10px; 
-        font-size: 14px; 
-    }
-    
-    .login-page-container #informacoes a {
-        font-size: 1.2rem; 
-        padding-left: 10px;
-    }
+  }
 }
