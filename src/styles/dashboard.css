@@ -1,0 +1,136 @@
+/* Layout Base */
+.dashboard-container {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar Superior */
+.top-navbar {
+  background-color: green;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.nav-icon {
+  font-size: 2rem;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.nav-icon-link, 
+.nav-icon-link:visited, 
+.nav-icon-link:active {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-divider {
+  width: 1px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.user-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 35px;
+  height: 35px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+/* Conteúdo */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.page-title {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.page-title span {
+  color: green;
+}
+
+/* Sistema de Grid para os Botões */
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  gap: 20px;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Botões Genéricos Reutilizáveis */
+.menu-button {
+  padding: 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    filter 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+/* Variantes de cores */
+.btn-primary {
+  background-color: green;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #d9d9d9;
+  color: #333;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px dashed #555;
+  color: white;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .grid-menu {
+    grid-template-columns: 1fr; /* 1 coluna no celular */
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+}

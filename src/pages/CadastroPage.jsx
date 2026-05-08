@@ -4,6 +4,13 @@ import logoLobo from '../assets/imagens/logo-arena-mafia.png';
 import '../styles/login.css';
 
 function CadastroPage() {
+  const navigate = useNavigate();
+
+  const handleCadastro = (e) => {
+    e.preventDefault();
+    // Lógica de cadastro aqui
+    navigate('/dashboard');
+  };
   const [passwordType, setPasswordType] = useState('password');
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
 

@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import CadastroPage from './pages/CadastroPage';
 import WhatsAppButton from './components/WhatsAppButton';
+import MenuPrincipal from './pages/MenuPrincipal';
 
 function AppContent() {
   const location = useLocation();
@@ -15,6 +16,7 @@ function AppContent() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/cadastro" element={<CadastroPage />} />
+          <Route path="/dashboard" element={<MenuPrincipal />} />
         </Routes>
       </div>
 
