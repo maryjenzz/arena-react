@@ -1,0 +1,132 @@
+/* Estrutura Base */
+.precos-container {
+  background-color: #0b0b0b;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+.precos-content {
+  padding: 20px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Botão Voltar e Título */
+.back-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.precos-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Container da Estrutura da Tabela */
+.tabela-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tabela-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 💡 ISSO AQUI vai desgrudar as pílulas uma da outra! */
+}
+
+/* Alinhamento base das colunas (Grid compartilhado para header e linhas) */
+.tabela-header,
+.tabela-linha {
+  display: grid;
+  grid-template-columns: 2.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+  align-items: center;
+  padding: 10 40px;
+}
+
+/* Configuração do Cabeçalho */
+.tabela-header {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.tabela-header .col-dia {
+  text-align: left;
+}
+
+/* Estilização das Linhas (Pílulas Cinzas) */
+.tabela-linha {
+  background-color: #ffffff; /* Cor cinza claro da imagem */
+  color: #000000; /* Texto preto dentro da pílula */
+  height: 65px;
+  border-radius: 35px; /* Bordas bem arredondadas */
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+/* Alinhamentos específicos dos conteúdos */
+.col-dia {
+  text-align: center;
+}
+
+.dia-texto {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.col-valor {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Espaço entre o cifrão e o valor */
+  font-size: 1.4rem;
+}
+
+.cifrao {
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.col-tempo {
+  text-align: center;
+}
+
+.tempo-texto {
+  font-size: 1.4rem;
+}
+
+/* Responsividade simples para telas menores */
+@media (max-width: 768px) {
+  .precos-content {
+    padding: 20px 15px;
+  }
+
+  .tabela-header,
+  .tabela-linha {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 0 15px;
+    font-size: 0.85rem;
+  }
+
+  .dia-texto,
+  .col-valor,
+  .tempo-texto {
+    font-size: 0.85rem;
+  }
+
+  .col-valor {
+    gap: 5px;
+  }
+}

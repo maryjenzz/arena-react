@@ -1,0 +1,224 @@
+/* Estrutura Base */
+.perfil-container {
+  background-color: #0b0b0b;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+.perfil-content {
+  padding: 20px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Botão Voltar e Título */
+.back-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.perfil-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Layout em duas colunas (Foto e Dados) */
+.perfil-card-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+/* Seção da Foto (Esquerda) */
+.foto-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.foto-box {
+  width: 250px;
+  height: 320px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.camera-placeholder-icon {
+  color: #333333;
+  font-size: 2rem;
+}
+
+.user-uploaded-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+}
+
+/* Seção de Informações (Direita) */
+.dados-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 250px;
+}
+
+.info-group label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.info-group p {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+.endereco-text {
+  white-space: pre-line;
+}
+
+/* Container de Botões Lado a Lado */
+.perfil-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+/* Botão Base Tracejado */
+.btn-outline-dashed {
+  background: transparent;
+  border: 2px dashed #ffffff;
+  border-radius: 12px;
+  color: #ffffff;
+  padding: 10px 24px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px; /* Altura fixa para todos os botões alinharem perfeitamente */
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* Hover geral para botões brancos */
+.btn-outline-dashed:not(.btn-cancelar):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-style: solid;
+}
+
+/* CORREÇÃO DO BOTÃO CANCELAR: Força o vermelho tanto normal quanto no hover */
+.btn-outline-dashed.btn-cancelar {
+  border-color: #e53935;
+  color: #e53935;
+}
+
+.btn-outline-dashed.btn-cancelar:hover {
+  background-color: rgba(229, 57, 53, 0.1) !important;
+  border-color: #e53935 !important;
+  color: #e53935 !important;
+  border-style: solid;
+}
+
+/* Botão Salvar (Verde) */
+.btn-save {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 35px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.btn-save:hover:not(:disabled) {
+  background-color: #246327;
+}
+
+/* Estilização dos campos de input durante a edição */
+.perfil-input,
+.perfil-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #1a1a1a;
+  border: 1px solid #333333;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1.4rem; /* Aumentado para combinar com os textos estáticos */
+  font-family: sans-serif;
+  margin-top: 4px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.perfil-input:focus,
+.perfil-textarea:focus {
+  outline: none;
+  border-color: #2e7d32;
+}
+
+.perfil-textarea {
+  resize: vertical;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .perfil-card-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .dados-section {
+    align-items: center;
+    text-align: center;
+  }
+
+  .perfil-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-save,
+  .btn-outline-dashed {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}

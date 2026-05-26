@@ -1,0 +1,97 @@
+/* Estrutura Base */
+.historico-container {
+  background-color: #0b0b0b;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+.historico-content {
+  padding: 20px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Botão Voltar e Título */
+.back-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.historico-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Layout da Tabela */
+.historico-table {
+  width: 100%;
+}
+
+/* Cabeçalho da Tabela */
+.historico-header {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
+  padding: 0 40px 15px 40px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+/* Lista de Pílulas */
+.historico-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre as linhas */
+}
+
+.historico-pill {
+  background-color: #fff;
+  color: #000;
+  height: 60px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 2fr 1.5fr;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+  padding: 0 20px;
+}
+
+/* Cores de Status */
+.text-green { color: green; } /* Verde para Realizada/Pago */
+.text-red { color: #d32f2f; }   /* Vermelho para Cancelada/Não Pago */
+.text-default { color: #000; }  /* Cor padrão (preto) */
+
+/* Estilo do Valor */
+.col-valor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.cifrao {
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+/* Ajuste de Alinhamento na primeira coluna (Data) */
+.col-data {
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .historico-header, .historico-pill {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    font-size: 0.8rem;
+    padding: 0 10px;
+  }
+}
