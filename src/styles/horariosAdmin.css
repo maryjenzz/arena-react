@@ -1,0 +1,299 @@
+.horarios-admin-container {
+  background-color: #0b0b0b;
+  min-height: 100vh;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+.horarios-admin-content {
+  padding: 20px 24px;
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.horarios-admin-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.calendario-admin-box {
+  background-color: #fff;
+  color: #000000;
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.mes-ano {
+  font-size: 1.1rem;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+}
+
+.dias-semana-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333333;
+}
+
+.dias-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 12px;
+}
+
+.dia-btn-admin {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #000000;
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.dia-btn-admin:hover {
+  background-color: green;
+  color: white;
+}
+
+.dia-btn-admin.selected-glow-admin {
+  background-color: green;
+  color: white;
+  box-shadow: 0 0 15px rgba(46, 125, 50, 0.9);
+}
+
+.dia-bloqueado-admin {
+  color: #999999;
+}
+
+.dia-bloqueado-admin:hover,
+.dia-bloqueado-admin.selected-glow-admin {
+  background-color: #8B0000;
+  color: white;
+  box-shadow: 0 0 15px #8B0000;
+}
+
+.acoes-admin-horarios {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.btn-agendar-admin,
+.btn-bloquear-admin,
+.btn-desbloquear-admin,
+.btn-salvar-admin-horarios {
+  border: none;
+  height: 38px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-agendar-admin {
+  background-color: white;
+  color: #000000;
+}
+
+.btn-bloquear-admin {
+  background-color: #b00000;
+  color: white;
+}
+
+.btn-desbloquear-admin {
+  background-color: #333333;
+  color: white;
+  border: 1px solid #8B0000;
+}
+
+.reservas-admin-section {
+  margin-top: 35px;
+  text-align: left;
+  width: 850px;
+  max-width: calc(100vw - 48px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.reservas-admin-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+}
+
+.reservas-admin-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0 18px;
+  margin-bottom: 10px;
+}
+
+.reserva-admin-linha {
+  background-color: #d9d9d9;
+  color: #000000;
+  border-radius: 18px;
+  padding: 13px 18px;
+  margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.reserva-admin-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-cancelar-admin,
+.btn-editar-admin {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-cancelar-admin {
+  background-color: #8B0000;
+}
+
+.btn-editar-admin {
+  background-color: #222222;
+}
+
+.btn-salvar-admin-horarios {
+  width: 100%;
+  background-color: green;
+  color: white;
+  margin-top: 8px;
+  margin-bottom: 25px;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+@media (max-width: 650px) {
+  .horarios-admin-content {
+    max-width: 100%;
+  }
+
+  .reservas-admin-header {
+    display: none;
+  }
+
+  .reserva-admin-linha {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .reserva-admin-acoes {
+    justify-content: flex-start;
+  }
+}
+
+.modal-reserva-fundo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.modal-reserva-card {
+  width: 100%;
+  max-width: 430px;
+  background-color: #0b0b0b;
+  border: 2px solid green;
+  border-radius: 22px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 0 35px rgba(0, 128, 0, 0.7);
+}
+
+.modal-reserva-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: white;
+}
+
+.modal-reserva-card input {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  background-color: transparent;
+  color: white;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal-reserva-card input::placeholder {
+  color: white;
+}
+
+.fechar-modal-reserva {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.btn-salvar-modal-reserva {
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-reserva-card select {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  background-color: #0b0b0b;
+  color: white;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal-reserva-card option {
+  background-color: #0b0b0b;
+  color: white;
+}

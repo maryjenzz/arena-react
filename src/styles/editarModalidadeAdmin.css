@@ -1,0 +1,153 @@
+.editar-modalidade-content {
+  flex: 1;
+  background-color: #0a0a0a;
+  color: white;
+  position: relative;
+  padding: 45px 70px;
+}
+
+.editar-voltar-seta {
+  color: white;
+  font-size: 1.4rem;
+  text-decoration: none;
+  position: absolute;
+  top: 30px;
+  left: 45px;
+}
+
+.editar-modalidade-area {
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 85px;
+}
+
+.modalidade-preview {
+  width: 190px;
+  height: 190px;
+  background-color: #d9d9d9;
+  color: #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalidade-preview i {
+  font-size: 5.5rem;
+}
+
+.editar-modalidade-form {
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.editar-modalidade-form input {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  background: transparent;
+  color: white;
+  padding: 0 18px;
+  font-weight: 600;
+  outline: none;
+}
+
+.editar-modalidade-form input::placeholder {
+  color: white;
+}
+
+.editar-modalidade-form .input-verde {
+  background-color: green;
+  border-color: green;
+  box-shadow: 0 0 28px green;
+}
+
+.caixa-icones {
+  height: 120px;
+  background-color: green;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.icone-opcao {
+  background: transparent;
+  border: none;
+  color: #111;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.btn-salvar-modalidade {
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-salvar-modalidade:hover {
+  filter: brightness(1.1);
+}
+
+@media (max-width: 800px) {
+  .editar-modalidade-area {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .editar-modalidade-form {
+    width: 100%;
+    max-width: 430px;
+  }
+}
+
+.input-icone-area {
+  display: flex;
+  gap: 10px;
+}
+
+.input-icone-area input {
+  flex: 1;
+}
+
+.input-icone-area button {
+  width: 45px;
+  border: none;
+  border-radius: 10px;
+  background-color: green;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.icone-selecionado {
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+.btn-excluir-modalidade {
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background-color: #8B0000;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-excluir-modalidade:hover {
+  background-color: #a30000;
+  filter: brightness(1.1);
+}

@@ -1,0 +1,100 @@
+.quadras-admin-content {
+  flex: 1;
+  background-color: #0a0a0a;
+  color: white;
+  position: relative;
+  padding: 45px 70px;
+}
+
+.quadras-voltar-seta {
+  color: white;
+  font-size: 1.4rem;
+  text-decoration: none;
+  position: absolute;
+  top: 30px;
+  left: 45px;
+}
+
+.quadras-admin-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.quadras-admin-lista {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+  justify-content: center;
+}
+
+.quadra-card {
+  width: 220px;
+  height: 280px;
+  border: 10px solid #d9d9d9;
+  border-radius: 45px;
+  background-color: transparent;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.quadra-card:hover {
+  border-color: green;
+  box-shadow: 0 0 35px green;
+  transform: scale(1.05);
+}
+
+.quadra-hover {
+  position: absolute;
+  inset: 0;
+  background-color: #0a0a0a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.quadra-card:hover .quadra-hover {
+  opacity: 1;
+}
+
+.quadra-card.adicionar i {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+@media (max-width: 700px) {
+  .quadras-admin-lista {
+    flex-direction: column;
+  }
+
+  .quadra-card {
+    width: 150px;
+    height: 180px;
+  }
+}
+
+.quadra-card-bloqueada {
+  border-color: #8B0000;
+  color: #8B0000;
+  box-shadow: 0 0 25px #8B0000;
+}
+
+.quadra-card-bloqueada:hover {
+  border-color: #8B0000;
+  box-shadow: 0 0 35px #8B0000;
+}

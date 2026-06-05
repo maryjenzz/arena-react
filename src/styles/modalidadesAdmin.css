@@ -1,0 +1,116 @@
+.modalidades-admin-content {
+  flex: 1;
+  background-color: #0a0a0a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.voltar-seta {
+  color: white;
+  font-size: 1.6rem;
+  text-decoration: none;
+  position: absolute;
+  top: 95px;
+  left: 60px;
+}
+
+.modalidades-admin-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.modalidades-admin-lista {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.modalidade-circulo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modalidade-circulo i {
+  font-size: 6rem;
+}
+
+.modalidade-circulo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px green;
+}
+
+.modalidade-hover {
+  position: absolute;
+  inset: 0;
+  background: green;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.modalidade-circulo:hover .modalidade-hover {
+  opacity: 1;
+}
+
+.modalidade-circulo.adicionar i {
+  font-size: 5rem;
+  font-weight: 300;
+}
+
+@media (max-width: 700px) {
+  .modalidades-admin-content {
+    padding: 25px;
+  }
+
+  .voltar-seta {
+    left: 25px;
+  }
+
+  .modalidades-admin-lista {
+    gap: 25px;
+  }
+
+  .modalidade-circulo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .modalidade-circulo i {
+    font-size: 3.5rem;
+  }
+}
+
+.modalidade-item {
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+.modalidade-item p {
+  margin-top: 18px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}

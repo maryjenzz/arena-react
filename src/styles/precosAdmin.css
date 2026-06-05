@@ -1,0 +1,176 @@
+.precos-admin-container {
+  background-color: #0b0b0b;
+  min-height: 100vh;
+  color: white;
+  font-family: sans-serif;
+}
+
+.precos-admin-content {
+  padding: 35px 70px 60px;
+  max-width: 1150px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.precos-back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-bottom: 35px;
+}
+
+.precos-admin-title {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.precos-tabela {
+  width: 100%;
+}
+
+.precos-header,
+.precos-linha {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 15px;
+}
+
+.precos-header {
+  padding: 0 45px 15px;
+  font-weight: bold;
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.precos-linha {
+  background-color: #d9d9d9;
+  color: black;
+  border-radius: 30px;
+  padding: 22px 45px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+
+.preco-campo,
+.tempo-display {
+  border: none;
+  background: transparent;
+  color: black;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 14px;
+  transition: 0.2s;
+}
+
+.preco-campo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.preco-campo:hover,
+.tempo-display:hover {
+  background-color: green;
+  color: white;
+  box-shadow: 0 0 25px green;
+}
+
+.btn-salvar-precos {
+  width: 100%;
+  background-color: green;
+  color: white;
+  border: none;
+  height: 48px;
+  border-radius: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal-preco-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-preco-card {
+  background: #0b0b0b;
+  border: 2px solid green;
+  border-radius: 20px;
+  width: 350px;
+  padding: 25px;
+  box-shadow: 0 0 35px green;
+}
+
+.modal-preco-card h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-preco-card input {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  background: transparent;
+  color: white;
+  padding: 0 15px;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.modal-preco-botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-preco-botoes button {
+  flex: 1;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-preco-botoes button:first-child {
+  background: green;
+  color: white;
+}
+
+.modal-preco-botoes button:last-child {
+  background: #8B0000;
+  color: white;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+@media (max-width: 800px) {
+  .precos-admin-content {
+    padding: 25px;
+  }
+
+  .precos-header {
+    display: none;
+  }
+
+  .precos-linha {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
