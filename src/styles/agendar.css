@@ -52,10 +52,38 @@
   padding: 20px;
 }
 
+.calendario-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .mes-ano {
   font-size: 1.1rem;
-  margin: 0 0 20px 0;
+  margin: 0;
   font-weight: 500;
+}
+
+.btn-seta-calendario {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #000000;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  width: 32px;
+  height: 32px;
+}
+
+.btn-seta-calendario:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: green;
 }
 
 .dias-semana-header {

@@ -5,27 +5,57 @@ import '../styles/historico.css';
 function HistoricoAgendamento() {
   const navigate = useNavigate();
 
-  // Dados temporários para visualização
-  const historico = [
-    { 
-      data: "08/01/2026", 
-      statusReserva: "Cancelada", 
-      statusPagamento: "Cancelado", 
-      valor: "0,00" 
-    },
-    { 
-      data: "03/01/2026", 
-      statusReserva: "Realizada", 
-      statusPagamento: "Pago", 
-      valor: "80,00" 
-    },
-    { 
-      data: "15/12/2025", 
-      statusReserva: "Cancelada", 
-      statusPagamento: "Não Pago", 
-      valor: "0,00" 
+  const obterPrecoReserva = (dataStr, horarioStr) => {
+    try {
+      const [ano, mes, dia] = dataStr.split('-').map(Number);
+      const dateObj = new Date(ano, mes - 1, dia);
+      const diaSemana = dateObj.getDay();
+
+      const salvas = localStorage.getItem('precosAdmin');
+      const precos = salvas ? JSON.parse(salvas) : {
+        semana: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
+        sabado: { manha: '0,00', tarde: '0,00', noite: '0,00', tempo: '60min' },
+        domingo: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
+      };
+
+      let periodo = 'noite';
+      if (horarioStr) {
+        const horaInicio = parseInt(horarioStr.split(':')[0], 10);
+        if (horaInicio < 12) {
+          periodo = 'manha';
+        } else if (horaInicio < 18) {
+          periodo = 'tarde';
+        }
+      }
+
+      if (diaSemana === 0) {
+        return precos.domingo[periodo];
+      } else if (diaSemana === 6) {
+        return precos.sabado[periodo];
+      } else {
+        return precos.semana[periodo];
+      }
+    } catch (e) {
+      return '80,00';
     }
-  ];
+  };
+
+  const formatarDataExibicao = (dataStr) => {
+    try {
+      const [ano, mes, dia] = dataStr.split('-');
+      return `${dia}/${mes}/${ano}`;
+    } catch (e) {
+      return dataStr;
+    }
+  };
+
+  const reservasSalvas = JSON.parse(localStorage.getItem('reservas')) || [];
+  const historico = reservasSalvas.map((reserva) => ({
+    data: formatarDataExibicao(reserva.data),
+    statusReserva: "Realizada",
+    statusPagamento: "Pago",
+    valor: obterPrecoReserva(reserva.data, reserva.horario),
+  }));
 
   // Função para definir a cor do texto baseada no status
   const getStatusClass = (status) => {

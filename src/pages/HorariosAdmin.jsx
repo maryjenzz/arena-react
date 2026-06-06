@@ -1,12 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/horariosAdmin.css';
 
 function HorariosAdmin() {
   const navigate = useNavigate();
 
-  const [diaSelecionado, setDiaSelecionado] = useState(8);
-  const [diasBloqueados, setDiasBloqueados] = useState([12, 13]);
+  const hoje = new Date();
+  const formatarDataChave = (date) => {
+    const anoVal = date.getFullYear();
+    const mesVal = String(date.getMonth() + 1).padStart(2, '0');
+    const diaVal = String(date.getDate()).padStart(2, '0');
+    return `${anoVal}-${mesVal}-${diaVal}`;
+  };
+  const hojeChave = formatarDataChave(hoje);
+
+  const [dataSelecionada, setDataSelecionada] = useState(hoje);
+  const [currentDate, setCurrentDate] = useState(hoje);
+
+  const formatarChaveProps = (anoVal, mesVal, diaVal) => {
+    const m = String(mesVal + 1).padStart(2, '0');
+    const d = String(diaVal).padStart(2, '0');
+    return `${anoVal}-${m}-${d}`;
+  };
+
+  const [diasBloqueados, setDiasBloqueados] = useState(() => {
+    const salvas = localStorage.getItem('diasBloqueados');
+    return salvas ? JSON.parse(salvas) : [
+      formatarChaveProps(hoje.getFullYear(), hoje.getMonth(), 12),
+      formatarChaveProps(hoje.getFullYear(), hoje.getMonth(), 13),
+    ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('diasBloqueados', JSON.stringify(diasBloqueados));
+  }, [diasBloqueados]);
 
   const quadrasCadastradas =
     JSON.parse(localStorage.getItem('quadras')) || [
@@ -45,49 +72,93 @@ function HorariosAdmin() {
     '21:30 - 22:30',
   ];
 
-  const [reservas, setReservas] = useState([
-    {
-      id: 1,
-      usuario: 'João Pedro',
-      telefone: '(47)999991111',
-      quadra: 'Quadra 01',
-      horario: '09:00 - 10:00',
-    },
-    {
-      id: 2,
-      usuario: 'Maria Clara',
-      telefone: '(47)999992222',
-      quadra: 'Quadra 02',
-      horario: '14:30 - 15:30',
-    },
-    {
-      id: 3,
-      usuario: 'Treino',
-      telefone: '(47)999993333',
-      quadra: 'Quadra 01',
-      horario: '17:00 - 18:00',
-    },
-    {
-      id: 4,
-      usuario: 'Caio Alves',
-      telefone: '(47)999994444',
-      quadra: 'Quadra 02',
-      horario: '20:30 - 21:30',
-    },
-  ]);
+  const [reservas, setReservas] = useState(() => {
+    const salvas = localStorage.getItem('reservas');
+    if (salvas) {
+      return JSON.parse(salvas);
+    }
+    const inicial = [
+      {
+        id: 1,
+        grupoId: 1,
+        usuario: 'João Pedro',
+        telefone: '(47)999991111',
+        quadra: 'Quadra 01',
+        horario: '09:00 - 10:00',
+        data: hojeChave,
+      },
+      {
+        id: 2,
+        grupoId: 2,
+        usuario: 'Maria Clara',
+        telefone: '(47)999992222',
+        quadra: 'Quadra 02',
+        horario: '14:30 - 15:30',
+        data: hojeChave,
+      },
+      {
+        id: 3,
+        grupoId: 3,
+        usuario: 'Treino',
+        telefone: '(47)999993333',
+        quadra: 'Quadra 01',
+        horario: '17:00 - 18:00',
+        data: hojeChave,
+      },
+      {
+        id: 4,
+        grupoId: 4,
+        usuario: 'Caio Alves',
+        telefone: '(47)999994444',
+        quadra: 'Quadra 02',
+        horario: '20:30 - 21:30',
+        data: hojeChave,
+      },
+    ];
+    localStorage.setItem('reservas', JSON.stringify(inicial));
+    return inicial;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('reservas', JSON.stringify(reservas));
+  }, [reservas]);
 
   const [modalAberto, setModalAberto] = useState(false);
   const [reservaEditando, setReservaEditando] = useState(null);
+  const [modalCancelarAberto, setModalCancelarAberto] = useState(false);
+  const [reservaParaCancelar, setReservaParaCancelar] = useState(null);
 
   const [formReserva, setFormReserva] = useState({
     usuario: '',
     telefone: '',
     quadra: '',
     horario: '',
+    repetir: 'nao',
+    diasSemana: [],
   });
 
-  const diasJaneiro = Array.from({ length: 31 }, (_, i) => i + 1);
-  const diaBloqueado = diasBloqueados.includes(diaSelecionado);
+  const ano = currentDate.getFullYear();
+  const mes = currentDate.getMonth();
+  const diasNoMes = new Date(ano, mes + 1, 0).getDate();
+  const listaDias = Array.from({ length: diasNoMes }, (_, i) => i + 1);
+  const primeiroDiaSemana = new Date(ano, mes, 1).getDay();
+  const emptySpans = Array.from({ length: primeiroDiaSemana });
+
+  const meses = [
+    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
+    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+  ];
+
+  const prevMonth = () => {
+    setCurrentDate(new Date(ano, mes - 1, 1));
+  };
+
+  const nextMonth = () => {
+    setCurrentDate(new Date(ano, mes + 1, 1));
+  };
+
+  const dataSelecionadaChave = formatarDataChave(dataSelecionada);
+  const diaBloqueado = diasBloqueados.includes(dataSelecionadaChave);
 
   function formatarTelefone(valor) {
     const apenasNumeros = valor.replace(/\D/g, '').slice(0, 11);
@@ -101,11 +172,40 @@ function HorariosAdmin() {
 
   function bloquearOuDesbloquearDia() {
     if (diaBloqueado) {
-      setDiasBloqueados(diasBloqueados.filter((dia) => dia !== diaSelecionado));
+      setDiasBloqueados(diasBloqueados.filter((chave) => chave !== dataSelecionadaChave));
     } else {
-      setDiasBloqueados([...diasBloqueados, diaSelecionado]);
+      setDiasBloqueados([...diasBloqueados, dataSelecionadaChave]);
     }
   }
+
+  const gerarDatasRepetidas = (dataInicioStr, repetirOpcao, diasSemanaSelecionados) => {
+    const datas = [];
+    const [anoStr, mesStr, diaStr] = dataInicioStr.split('-');
+    const dataInicio = new Date(Number(anoStr), Number(mesStr) - 1, Number(diaStr));
+
+    if (repetirOpcao === 'semanal') {
+      for (let i = 1; i <= 8; i++) {
+        const novaData = new Date(dataInicio);
+        novaData.setDate(dataInicio.getDate() + i * 7);
+        datas.push(formatarDataChave(novaData));
+      }
+    } else if (repetirOpcao === 'mensal') {
+      for (let i = 1; i <= 6; i++) {
+        const novaData = new Date(dataInicio);
+        novaData.setMonth(dataInicio.getMonth() + i);
+        datas.push(formatarDataChave(novaData));
+      }
+    } else if (repetirOpcao === 'personalizado') {
+      for (let i = 1; i <= 28; i++) {
+        const novaData = new Date(dataInicio);
+        novaData.setDate(dataInicio.getDate() + i);
+        if (diasSemanaSelecionados.includes(novaData.getDay())) {
+          datas.push(formatarDataChave(novaData));
+        }
+      }
+    }
+    return datas;
+  };
 
   function abrirCriacaoReserva() {
     setReservaEditando(null);
@@ -114,6 +214,8 @@ function HorariosAdmin() {
       telefone: '',
       quadra: '',
       horario: '',
+      repetir: 'nao',
+      diasSemana: [],
     });
     setModalAberto(true);
   }
@@ -125,6 +227,8 @@ function HorariosAdmin() {
       telefone: reserva.telefone,
       quadra: reserva.quadra,
       horario: reserva.horario,
+      repetir: reserva.repetir || 'nao',
+      diasSemana: reserva.diasSemana || [],
     });
     setModalAberto(true);
   }
@@ -157,23 +261,82 @@ function HorariosAdmin() {
 
       setReservas(reservasAtualizadas);
     } else {
+      const baseId = Date.now();
       const novaReserva = {
-        id: Date.now(),
-        ...formReserva,
+        id: baseId,
+        grupoId: baseId,
+        data: dataSelecionadaChave,
+        usuario: formReserva.usuario,
+        telefone: formReserva.telefone,
+        quadra: formReserva.quadra,
+        horario: formReserva.horario,
+        repetir: formReserva.repetir,
+        diasSemana: formReserva.diasSemana,
       };
 
-      setReservas([...reservas, novaReserva]);
+      let novasReservas = [novaReserva];
+
+      if (formReserva.repetir !== 'nao') {
+        const datasRepetidas = gerarDatasRepetidas(
+          dataSelecionadaChave,
+          formReserva.repetir,
+          formReserva.diasSemana
+        );
+        datasRepetidas.forEach((dataRep, idx) => {
+          novasReservas.push({
+            id: baseId + idx + 1,
+            grupoId: baseId,
+            data: dataRep,
+            usuario: formReserva.usuario,
+            telefone: formReserva.telefone,
+            quadra: formReserva.quadra,
+            horario: formReserva.horario,
+            repetir: formReserva.repetir,
+            diasSemana: formReserva.diasSemana,
+          });
+        });
+      }
+
+      setReservas([...reservas, ...novasReservas]);
     }
 
     setModalAberto(false);
   }
 
-  function cancelarReserva(id) {
-    const confirmar = window.confirm('Deseja cancelar esta reserva?');
+  function cancelarReserva(reserva) {
+    const countGrupo = reservas.filter(
+      (r) => r.grupoId && r.grupoId === reserva.grupoId
+    ).length;
 
-    if (!confirmar) return;
+    if (reserva.grupoId && countGrupo > 1) {
+      setReservaParaCancelar(reserva);
+      setModalCancelarAberto(true);
+    } else {
+      const confirmar = window.confirm('Deseja cancelar esta reserva?');
+      if (confirmar) {
+        setReservas(reservas.filter((r) => r.id !== reserva.id));
+      }
+    }
+  }
 
-    setReservas(reservas.filter((reserva) => reserva.id !== id));
+  function executarCancelamento(opcao) {
+    if (!reservaParaCancelar) return;
+
+    if (opcao === 'apenas-esta') {
+      setReservas(reservas.filter((r) => r.id !== reservaParaCancelar.id));
+    } else if (opcao === 'todas-futuras') {
+      setReservas(
+        reservas.filter((r) => {
+          if (r.grupoId === reservaParaCancelar.grupoId) {
+            return r.data < reservaParaCancelar.data;
+          }
+          return true;
+        })
+      );
+    }
+
+    setModalCancelarAberto(false);
+    setReservaParaCancelar(null);
   }
 
   return (
@@ -206,7 +369,15 @@ function HorariosAdmin() {
         <h1 className="horarios-admin-title">Horários</h1>
 
         <div className="calendario-admin-box">
-          <h3 className="mes-ano">Janeiro 2026</h3>
+          <div className="calendario-header">
+            <button onClick={prevMonth} className="btn-seta-calendario">
+              <i className="fas fa-chevron-left"></i>
+            </button>
+            <h3 className="mes-ano">{meses[mes]} {ano}</h3>
+            <button onClick={nextMonth} className="btn-seta-calendario">
+              <i className="fas fa-chevron-right"></i>
+            </button>
+          </div>
 
           <div className="dias-semana-header">
             <span>D</span>
@@ -219,24 +390,32 @@ function HorariosAdmin() {
           </div>
 
           <div className="dias-grid">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-
-            {diasJaneiro.map((dia) => (
-              <button
-                key={dia}
-                className={`
-                  dia-btn-admin
-                  ${diaSelecionado === dia ? 'selected-glow-admin' : ''}
-                  ${diasBloqueados.includes(dia) ? 'dia-bloqueado-admin' : ''}
-                `}
-                onClick={() => setDiaSelecionado(dia)}
-              >
-                {dia}
-              </button>
+            {emptySpans.map((_, index) => (
+              <span key={`empty-${index}`}></span>
             ))}
+
+            {listaDias.map((dia) => {
+              const chaveDia = formatarChaveProps(ano, mes, dia);
+              const isSelected =
+                dataSelecionada.getDate() === dia &&
+                dataSelecionada.getMonth() === mes &&
+                dataSelecionada.getFullYear() === ano;
+              const isBlocked = diasBloqueados.includes(chaveDia);
+
+              return (
+                <button
+                  key={dia}
+                  className={`
+                    dia-btn-admin
+                    ${isSelected ? 'selected-glow-admin' : ''}
+                    ${isBlocked ? 'dia-bloqueado-admin' : ''}
+                  `}
+                  onClick={() => setDataSelecionada(new Date(ano, mes, dia))}
+                >
+                  {dia}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -268,31 +447,39 @@ function HorariosAdmin() {
             <span></span>
           </div>
 
-          {reservas.map((reserva) => (
-            <div className="reserva-admin-linha" key={reserva.id}>
-              <span>{reserva.usuario}</span>
-              <span>{reserva.quadra}</span>
-              <span>{reserva.horario}</span>
-
-              <div className="reserva-admin-acoes">
-                <button
-                  type="button"
-                  className="btn-cancelar-admin"
-                  onClick={() => cancelarReserva(reserva.id)}
-                >
-                  Cancelar
-                </button>
-
-                <button
-                  type="button"
-                  className="btn-editar-admin"
-                  onClick={() => abrirEdicaoReserva(reserva)}
-                >
-                  Editar
-                </button>
-              </div>
+          {reservas.filter((reserva) => reserva.data === dataSelecionadaChave).length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '20px', color: '#999', fontWeight: 'bold' }}>
+              Nenhuma reserva para este dia.
             </div>
-          ))}
+          ) : (
+            reservas
+              .filter((reserva) => reserva.data === dataSelecionadaChave)
+              .map((reserva) => (
+                <div className="reserva-admin-linha" key={reserva.id}>
+                  <span>{reserva.usuario}</span>
+                  <span>{reserva.quadra}</span>
+                  <span>{reserva.horario}</span>
+
+                  <div className="reserva-admin-acoes">
+                    <button
+                      type="button"
+                      className="btn-cancelar-admin"
+                      onClick={() => cancelarReserva(reserva)}
+                    >
+                      Cancelar
+                    </button>
+
+                    <button
+                      type="button"
+                      className="btn-editar-admin"
+                      onClick={() => abrirEdicaoReserva(reserva)}
+                    >
+                      Editar
+                    </button>
+                  </div>
+                </div>
+              ))
+          )}
         </section>
 
         <button type="button" className="btn-salvar-admin-horarios">
@@ -374,8 +561,113 @@ function HorariosAdmin() {
               ))}
             </select>
 
+            <select
+              value={formReserva.repetir}
+              onChange={(e) =>
+                setFormReserva({
+                  ...formReserva,
+                  repetir: e.target.value,
+                  diasSemana: []
+                })
+              }
+              style={{
+                width: '100%',
+                height: '42px',
+                borderRadius: '10px',
+                border: '1px solid #d9d9d9',
+                backgroundColor: '#0b0b0b',
+                color: 'white',
+                padding: '0 15px',
+                marginBottom: '15px',
+                fontWeight: 'bold',
+                outline: 'none',
+                boxSizing: 'border-box'
+              }}
+            >
+              <option value="nao">Não repetir</option>
+              <option value="semanal">Repetir semanalmente (8 semanas)</option>
+              <option value="mensal">Repetir mensalmente (6 meses)</option>
+              <option value="personalizado">Repetir personalizado (dias específicos)</option>
+            </select>
+
+            {formReserva.repetir === 'personalizado' && (
+              <div style={{ marginBottom: '15px', padding: '0 5px' }}>
+                <p style={{ color: 'white', fontSize: '0.85rem', marginBottom: '8px', textAlign: 'left', fontWeight: 'bold' }}>
+                  Escolha os dias da semana:
+                </p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '4px' }}>
+                  {['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map((diaNome, idx) => {
+                    const isSelected = formReserva.diasSemana.includes(idx);
+                    return (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={() => {
+                          const novosDias = isSelected
+                            ? formReserva.diasSemana.filter((d) => d !== idx)
+                            : [...formReserva.diasSemana, idx];
+                          setFormReserva({ ...formReserva, diasSemana: novosDias });
+                        }}
+                        style={{
+                          flex: 1,
+                          padding: '6px 0',
+                          borderRadius: '6px',
+                          border: '1px solid #d9d9d9',
+                          backgroundColor: isSelected ? 'green' : 'transparent',
+                          color: 'white',
+                          fontWeight: 'bold',
+                          cursor: 'pointer',
+                          fontSize: '0.8rem',
+                          transition: 'background-color 0.2s'
+                        }}
+                      >
+                        {diaNome}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
             <button className="btn-salvar-modal-reserva" onClick={salvarReserva}>
               Salvar Reserva
+            </button>
+          </div>
+        </div>
+      )}
+
+      {modalCancelarAberto && (
+        <div className="modal-reserva-fundo">
+          <div className="modal-reserva-card" style={{ border: '2px solid red', boxShadow: '0 0 35px rgba(255, 0, 0, 0.7)' }}>
+            <button
+              className="fechar-modal-reserva"
+              onClick={() => {
+                setModalCancelarAberto(false);
+                setReservaParaCancelar(null);
+              }}
+            >
+              <i className="fas fa-times"></i>
+            </button>
+
+            <h2>Cancelar Recorrência</h2>
+            <p style={{ color: 'white', marginBottom: '25px', fontSize: '0.95rem', lineHeight: '1.4' }}>
+              Esta reserva faz parte de uma série recorrente. Como você deseja proceder?
+            </p>
+
+            <button 
+              className="btn-salvar-modal-reserva" 
+              onClick={() => executarCancelamento('apenas-esta')}
+              style={{ marginBottom: '12px', backgroundColor: '#333', border: '1px solid #555' }}
+            >
+              Cancelar apenas esta ocorrência
+            </button>
+
+            <button 
+              className="btn-salvar-modal-reserva" 
+              onClick={() => executarCancelamento('todas-futuras')}
+              style={{ backgroundColor: '#8B0000', border: '1px solid #ff4d4d' }}
+            >
+              Cancelar esta e todas as futuras
             </button>
           </div>
         </div>

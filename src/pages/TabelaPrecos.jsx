@@ -5,12 +5,17 @@ import '../styles/precos.css'; // Arquivo CSS que criaremos abaixo
 function TabelaPrecos() {
   const navigate = useNavigate();
 
-  // Dados estruturados conforme a imagem fornecida
+  const salvas = localStorage.getItem('precosAdmin');
+  const precos = salvas ? JSON.parse(salvas) : {
+    semana: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
+    sabado: { manha: '0,00', tarde: '0,00', noite: '0,00', tempo: '60min' },
+    domingo: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
+  };
+
   const precosData = [
-    { dia: "Segunda à Sexta", manha: "0,00", tarde: "0,00", noite: "80,00", tempo: "60 min" },
-    { dia: "Sábados", manha: "0,00", tarde: "0,00", noite: "0,00", tempo: "60 min" },
-    { dia: "Domingos e Feriados", manha: "0,00", tarde: "0,00", noite: "80,00", tempo: "60 min" },
-    { dia: "Segunda à Sexta", manha: "0,00", tarde: "0,00", noite: "80,00", tempo: "60 min" }
+    { dia: "Segunda à Sexta", manha: precos.semana.manha, tarde: precos.semana.tarde, noite: precos.semana.noite, tempo: precos.semana.tempo },
+    { dia: "Sábados", manha: precos.sabado.manha, tarde: precos.sabado.tarde, noite: precos.sabado.noite, tempo: precos.sabado.tempo },
+    { dia: "Domingos e Feriados", manha: precos.domingo.manha, tarde: precos.domingo.tarde, noite: precos.domingo.noite, tempo: precos.domingo.tempo }
   ];
 
   return (

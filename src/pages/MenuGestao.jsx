@@ -44,21 +44,14 @@ function MenuGestao() {
             Horários
           </Link>
 
-          <Link to="/admin/agenda" className="menu-button btn-secondary">
-            Agenda
-          </Link>
-
           <Link to="/admin/precos" className="menu-button btn-primary">
             Preços
           </Link>
 
-          <button
-            className="menu-button btn-outline"
-            onClick={() => window.history.back()}
-          >
+          <Link to="/" className="menu-button btn-outline">
             <i className="fas fa-arrow-left"></i>
             Voltar
-          </button>
+          </Link>
         </div>
       </main>
     </div>

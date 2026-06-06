@@ -4,9 +4,24 @@ import '../styles/modalidadesAdmin.css';
 
 function ModalidadesAdmin() {
   const modalidadesPadrao = [
-    { id: 1, nome: 'Beach Tennis', icone: 'fas fa-table-tennis' },
-    { id: 2, nome: 'Futevôlei', icone: 'fas fa-futbol' },
-    { id: 3, nome: 'Vôlei de Praia', icone: 'fas fa-volleyball-ball' },
+    { 
+      id: 1, 
+      nome: 'Beach Tennis', 
+      icone: 'fas fa-tennis-ball', 
+      descricao: 'Uma mistura emocionante de tênis, vôlei de praia e frescobol, perfeita para todos os níveis de habilidade.' 
+    },
+    { 
+      id: 2, 
+      nome: 'Futevôlei', 
+      icone: 'fas fa-futbol', 
+      descricao: 'Combine a paixão nacional do futebol com a técnica e a dinâmica do vôlei em nossas quadras de areia.' 
+    },
+    { 
+      id: 3, 
+      nome: 'Vôlei de Praia', 
+      icone: 'fas fa-volleyball-ball', 
+      descricao: 'Junte seus amigos para uma partida do clássico esporte de areia. Diversão e exercício garantidos!' 
+    },
   ];
 
   const [modalidades, setModalidades] = useState([]);

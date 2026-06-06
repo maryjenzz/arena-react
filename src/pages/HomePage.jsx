@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import logo from '../assets/imagens/logo-arena-mafia.png';
 import Footer from '../components/Footer';
@@ -6,6 +6,38 @@ import '../styles/style.css';
 import CardModalidades from '../components/ModalidadeCard';
 
 function HomePage() {
+    const [modalidades, setModalidades] = useState([]);
+
+    useEffect(() => {
+        const salvas = localStorage.getItem('modalidades');
+        if (salvas) {
+            setModalidades(JSON.parse(salvas));
+        } else {
+            const modalidadesPadrao = [
+                { 
+                    id: 1, 
+                    nome: 'Beach Tennis', 
+                    icone: 'fas fa-table-tennis', 
+                    descricao: 'Uma mistura emocionante de tênis, vôlei de praia e frescobol, perfeita para todos os níveis de habilidade.' 
+                },
+                { 
+                    id: 2, 
+                    nome: 'Futevôlei', 
+                    icone: 'fas fa-futbol', 
+                    descricao: 'Combine a paixão nacional do futebol com a técnica e a dinâmica do vôlei em nossas quadras de areia.' 
+                },
+                { 
+                    id: 3, 
+                    nome: 'Vôlei de Praia', 
+                    icone: 'fas fa-volleyball-ball', 
+                    descricao: 'Junte seus amigos para uma partida do clássico esporte de areia. Diversão e exercício garantidos!' 
+                },
+            ];
+            localStorage.setItem('modalidades', JSON.stringify(modalidadesPadrao));
+            setModalidades(modalidadesPadrao);
+        }
+    }, []);
+
     return (
         <>
             <Header />
@@ -19,21 +51,14 @@ function HomePage() {
                 <section id="modalidades">
                     <h2 className="heading">Modalidades</h2>
                     <div className="modalidades-container">
-                        <CardModalidades
-                            iconClass="fas fa-table-tennis"
-                            title="Beach Tennis"
-                            description="Uma mistura emocionante de tênis, vôlei de praia e frescobol, perfeita para todos os níveis de habilidade."
-                        />
-                        <CardModalidades
-                            iconClass="fas fa-futbol"
-                            title="Futevôlei"
-                            description="Combine a paixão nacional do futebol com a técnica e a dinâmica do vôlei em nossas quadras de areia."
-                        />
-                        <CardModalidades
-                            iconClass="fas fa-volleyball-ball"
-                            title="Vôlei de Praia"
-                            description="Junte seus amigos para uma partida do clássico esporte de areia. Diversão e exercício garantidos!"
-                        />
+                        {modalidades.map((m) => (
+                            <CardModalidades
+                                key={m.id}
+                                iconClass={m.icone}
+                                title={m.nome}
+                                description={m.descricao || ''}
+                            />
+                        ))}
                     </div>
                 </section>
 

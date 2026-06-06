@@ -5,10 +5,13 @@ import '../styles/precosAdmin.css';
 function PrecosAdmin() {
   const navigate = useNavigate();
 
-  const [precos, setPrecos] = useState({
-    semana: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
-    sabado: { manha: '0,00', tarde: '0,00', noite: '0,00', tempo: '60min' },
-    domingo: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
+  const [precos, setPrecos] = useState(() => {
+    const salvas = localStorage.getItem('precosAdmin');
+    return salvas ? JSON.parse(salvas) : {
+      semana: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
+      sabado: { manha: '0,00', tarde: '0,00', noite: '0,00', tempo: '60min' },
+      domingo: { manha: '0,00', tarde: '0,00', noite: '80,00', tempo: '60min' },
+    };
   });
 
   const [modalAberto, setModalAberto] = useState(false);
