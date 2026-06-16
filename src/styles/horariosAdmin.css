@@ -150,7 +150,7 @@
 .reservas-admin-section {
   margin-top: 35px;
   text-align: left;
-  width: 850px;
+  width: 980px;
   max-width: calc(100vw - 48px);
   margin-left: 50%;
   transform: translateX(-50%);
@@ -161,12 +161,18 @@
   margin-bottom: 25px;
 }
 
-.reservas-admin-header {
+.reservas-admin-header,
+.reserva-admin-linha {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.2fr;
+  grid-template-columns: 1.7fr 1.35fr 1fr 1.1fr 130px;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.reservas-admin-header {
   font-weight: bold;
   font-size: 0.9rem;
-  padding: 0 18px;
+  padding: 0 24px;
   margin-bottom: 10px;
 }
 
@@ -174,25 +180,34 @@
   background-color: #d9d9d9;
   color: #000000;
   border-radius: 18px;
-  padding: 13px 18px;
+  padding: 18px 24px;
   margin-bottom: 14px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1.2fr;
-  align-items: center;
   font-weight: bold;
   font-size: 0.95rem;
+  min-height: 64px;
+}
+
+.reserva-admin-linha span {
+  overflow-wrap: anywhere;
+}
+
+.reserva-admin-linha small {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #111;
 }
 
 .reserva-admin-acoes {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-cancelar-admin,
 .btn-editar-admin {
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 9px 15px;
   color: white;
   font-weight: bold;
@@ -201,6 +216,8 @@
 
 .btn-cancelar-admin {
   background-color: #8B0000;
+  width: 110px;
+  height: 38px;
 }
 
 .btn-editar-admin {
@@ -217,25 +234,6 @@
 
 button:hover {
   filter: brightness(1.1);
-}
-
-@media (max-width: 650px) {
-  .horarios-admin-content {
-    max-width: 100%;
-  }
-
-  .reservas-admin-header {
-    display: none;
-  }
-
-  .reserva-admin-linha {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .reserva-admin-acoes {
-    justify-content: flex-start;
-  }
 }
 
 .modal-reserva-fundo {
@@ -324,4 +322,30 @@ button:hover {
 .modal-reserva-card option {
   background-color: #0b0b0b;
   color: white;
+}
+
+@media (max-width: 800px) {
+  .horarios-admin-content {
+    max-width: 100%;
+  }
+
+  .reservas-admin-section {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .reservas-admin-header {
+    display: none;
+  }
+
+  .reserva-admin-linha {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .reserva-admin-acoes {
+    justify-content: flex-start;
+  }
 }
